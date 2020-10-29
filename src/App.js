@@ -5,12 +5,6 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import protectedRoutes from './protectedRoutes'
 import ProtectedRouteHoc from './components/ProtectedRoutesHoc'
-import  firebase  from 'firebase/app';
-import 'firebase/auth'
-import firebaseConfig from "./firebase.config";
-
-firebase.initializeApp(firebaseConfig);
-
 
 export const AuthContext = React.createContext(null);
 
@@ -19,7 +13,7 @@ function App() {
   
   function readSession() {
     const user = window.sessionStorage.getItem(
-			`firebase:authUser:${firebaseConfig.apiKey}:[DEFAULT]`
+			`firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
     );
 		if (user) setLoggedIn(true)
   }
@@ -28,7 +22,7 @@ function App() {
   }, [])
   function logout(){
     window.sessionStorage.removeItem(
-      `firebase:authUser:${firebaseConfig.apiKey}:[DEFAULT]`
+      `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
     );
     setLoggedIn(false);
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default () => {
+const UserProfile=() => {
     console.log('This is the protected route')
     return (
     <div>
@@ -9,3 +9,4 @@ export default () => {
     </div>
     )
 }
+export default UserProfile;
