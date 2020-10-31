@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Switch, BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import Homepage from "./components/Homepage";
-import Navbar from "./components/Navbar";
+import Homepage from "./components/HomePage/Homepage";
+import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import protectedRoutes from './protectedRoutes'
-import ProtectedRouteHoc from './components/ProtectedRoutesHoc'
+import ProtectedRouteHoc from './components/ProtectedRoute/ProtectedRoutesHoc'
 
 export const AuthContext = React.createContext(null);
 

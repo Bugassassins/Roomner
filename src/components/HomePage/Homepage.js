@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../App.js";
-import firebaseApp from "../firebaseApp";
+import { AuthContext } from "../../App.js";
+import firebaseApp from "../../firebaseApp";
 import { withRouter} from 'react-router-dom'
 
 const Homepage = (props) => {
