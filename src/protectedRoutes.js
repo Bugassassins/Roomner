@@ -1,5 +1,5 @@
 import React from 'react';
-import UserProfile from './components/Userprofile/UserProfile';
+import UserProfile from './components/UserProfile/UserProfile';
 
 const protectedRoutes = [
 	{

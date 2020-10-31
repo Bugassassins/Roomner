@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Switch, BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import Homepage from "./components/HomePage/Homepage";
-import Navbar from "./components/Navbar/Navbar";
+import Homepage from "./components/Homepage/Homepage";
 import "./App.css";
 import protectedRoutes from './protectedRoutes'
-import ProtectedRouteHoc from './components/ProtectedRoute/ProtectedRoutesHoc'
+import ProtectedRouteHoc from './components/ProtectedRoutesHoc'
 
 export const AuthContext = React.createContext(null);
 
@@ -30,7 +29,6 @@ function App() {
     <AuthContext.Provider value={{ isLoggedIn, setLoggedIn }}>
       <div className="App">
         <Router>
-          <Navbar isLoggedIn={isLoggedIn} logoutFunc={logout}/>
       <Switch>
             <Route
                 key="/"
@@ -42,6 +40,7 @@ function App() {
               <ProtectedRouteHoc
                 key={route.path}
                 isLoggedIn={isLoggedIn}
+                logoutFunc={logout}
                 path={route.path}
                 component={route.main}
                 exact={route.exact}

@@ -2,7 +2,10 @@ import React, { useState, useContext } from "react";
 import { AuthContext } from "../../App.js";
 import firebaseApp from "../../firebaseApp";
 import { withRouter} from 'react-router-dom'
-
+import HomePageNavbar from './HomePageNavbar';
+import Hero from "./Hero"
+import bedImg from "../../images/Homepage_assets/Graphic.png"
+import "./Homepage.css"
 const Homepage = (props) => {
     const [error, setErrors] = useState("");
     const Auth = useContext(AuthContext);
@@ -25,15 +28,12 @@ const Homepage = (props) => {
     }
     return (
         <div>
-            <h1>THIS IS HOMEPAGE</h1>
-            <button onClick={signInWithGoogle} className="googleBtn" type="button">
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                    alt="logo"
-                />
-                Login With Google
-            </button>
-            <span>{error}</span>
+            <HomePageNavbar handleLogin={signInWithGoogle} />
+            <div className="Homepage-div">
+                <img src={bedImg} className="Homepage-bed-image" alt="bedimage" />
+                <Hero className="Homepage-hero" handleLogin={signInWithGoogle}/>
+                <span>{error}</span>
+            </div>
         </div>
     );
 };

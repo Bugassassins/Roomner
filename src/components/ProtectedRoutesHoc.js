@@ -2,14 +2,14 @@ import React from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 import { bool, any, object } from 'prop-types';
 
-const ProtectedRouteHoc = ({ component: Component, isLoggedIn, ...rest }) => {
+const ProtectedRouteHoc = ({ component: Component, isLoggedIn,logoutFunc, ...rest }) => {
 	if (isLoggedIn || rest.public) {
 		console.log('PROTECTOR')
 		return (
 			<Route
 				{...rest}
 				render={props => {
-					return <Component {...props}></Component>;
+					return <Component {...props} logoutFunc={logoutFunc}></Component>;
 				}}
 			/>
 		);
