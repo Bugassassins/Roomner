@@ -1,6 +1,5 @@
 {
-  "name": "localrepo",
-  "main": "index.js",
+  "name": "roomner",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,12 +7,10 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "firebase": "^8.0.0",
-    "history": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
-    "terser": "3.14.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
