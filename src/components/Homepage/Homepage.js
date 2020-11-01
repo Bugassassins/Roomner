@@ -27,12 +27,13 @@ const Homepage = (props) => {
         })
     }
     return (
-        <div>
+        <div className="Homepage-bg">
             <HomePageNavbar handleLogin={signInWithGoogle} />
             <div className="Homepage-div">
                 <img src={bedImg} className="Homepage-bed-image" alt="bedimage" />
-                <Hero className="Homepage-hero" handleLogin={signInWithGoogle}/>
                 <span>{error}</span>
+                <Hero className="Homepage-hero" handleLogin={signInWithGoogle} />
+                
             </div>
         </div>
     );
