@@ -1,0 +1,35 @@
+.Footnote-container {
+    width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Footnote-container p{
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-18)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-poppins);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--regular-text);
+    text-align: left;
+    font: normal normal normal 15px/24px Poppins;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+@media(max-width: 1600px) {
+    .Footnote-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .Footnote-container p{
+        margin: 10px;
+    }
+}
+
+/* @media(max-width: 768px) {
+    .Footnote-container {
+        display: block;
+    }
+} */

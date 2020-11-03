@@ -18,6 +18,96 @@
     margin: auto 10px;
 }
 
+.Homepage-container{
+    width: 1280px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.Homepage-heading{
+    text-align: left;
+    font: normal normal normal 40px/72px Poppins;
+    letter-spacing: 0px;
+    color: var(--secondary);
+    opacity: 1;
+    line-height: 100%;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.Homepage-cards {
+    display: flex;
+    margin-top: 60px;
+}
+
+.Homepage-banner {
+    display: flex;
+    background: white;
+    margin: 80px auto 40px auto;
+    width: 80%;
+    border-radius: 20px;
+    padding: 60px 30px;
+}
+
+.Homepage-banner-image {
+    width: 33%;
+    padding: 30px;
+}
+
+.Homepage-banner-image img {
+    width: 180px;
+    height: auto;
+    margin-left: 20px;
+}
+
+.Homepage-banner-text {
+    width: 67%;
+    padding: 0 20px;
+}
+
+.Homepage-banner-text h1{
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-48)/var(--unnamed-line-spacing-72) var(--unnamed-font-family-poppins);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--primary);
+    text-align: center;
+    font: normal normal normal 40px/72px Poppins;
+    letter-spacing: 0px;
+    opacity: 1;
+    line-height: 100%;
+}
+
+.Homepage-banner-text p{
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-18)/var(--unnamed-line-spacing-27) var(--unnamed-font-family-poppins);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--dark-text);
+    text-align: center;
+    font: normal normal normal 15px/27px Poppins;
+    letter-spacing: 0px;
+    opacity: 1
+}
+
+.Homepage-btn {
+    background: #6C63FF 0% 0% no-repeat padding-box;
+    border: 0;
+    border-radius: 30px;
+    font: normal normal normal 24px/53px Segoe UI;
+    letter-spacing: -0.8px;
+    color: #FFFFFF;
+    opacity: 1;
+    padding: 0px 30px;
+    margin: 0;
+
+    cursor: pointer;    
+    text-align: center;
+}
+
+.Homepage-footer {
+    width: 100%;
+    background: white;
+    box-sizing: border-box;
+}
+
 @media(max-width: 768px) {
     .Homepage-div {
         width: 100%;
@@ -35,5 +125,50 @@
         height: auto;
         padding: 25px;
         box-sizing: border-box;
+    }
+
+    .Homepage-heading {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        font: normal normal normal 35px/72px Poppins;
+        line-height: 100%;
+    }
+
+    .Homepage-cards {
+        display: block;
+    }
+    
+    .Homepage-banner {
+        display: block;
+        width: 90%;
+        padding: 30px 0;
+        box-sizing: border-box;
+    }
+
+    .Homepage-banner-image {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .Homepage-banner-image img{
+        margin: 40px auto;
+    }
+
+    .Homepage-banner-text {
+        width: 90%;
+        padding: 0;
+        margin: 0 auto;
+    }
+}
+
+@media(max-width: 1024px) {
+    .Homepage-div {
+        width: 100%;
+    }
+
+    .Homepage-container {
+        width: 100%;
     }
 }

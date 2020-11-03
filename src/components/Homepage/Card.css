@@ -1,0 +1,42 @@
+.Card-container {
+    width: 33%;
+    text-align: center;
+}
+
+.Card-container img{
+    width: 180px;
+    height: auto;
+}
+
+.Card-container h3{
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-30)/var(--unnamed-line-spacing-46) var(--unnamed-font-family-poppins);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--primary);
+    text-align: center;
+    font: normal normal normal 26px/46px Poppins;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+.Card-container p{
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-18)/var(--unnamed-line-spacing-27) var(--unnamed-font-family-poppins);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--dark-text);
+    text-align: center;
+    font: normal normal normal 15px/27px Poppins;
+    letter-spacing: 0px;
+    opacity: 1;
+    width: 70%;
+    margin: 0 auto;
+}
+
+@media(max-width: 768px) {
+    .Card-container {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .Card-container p{
+        width: 90%;
+    }
+}
