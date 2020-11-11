@@ -26,8 +26,13 @@ const Homepage = (props) => {
                 .auth()
                 .signInWithPopup(provider)
                 .then(result => {
-                console.log(result)
-                Auth.setLoggedIn(true)
+                if(!Auth.isLoggedIn&&result.additionalUserInfo.isNewUser)
+                    Auth.setNewUser(true);
+                else
+                    Auth.setNewUser(false);
+                Auth.setLoggedIn(true);
+                Auth.setUser(result);
+                console.log(result);
                 props.history.push('/user')
                 })
                 .catch(e => setErrors(e.message))
