@@ -3,7 +3,7 @@ import "./HomePageNavbar.css";
 import logo from "../../images/Homepage_assets/logo.png"
 const HomePageNavbar=(props)=>{
     return(
-        <div class="Homepage-navbar-Header">
+        <div className="Homepage-navbar-Header">
             <img className="Homepage-navbar-Logo" src={logo} alt="logo"/>
             <div className="Homepage-navbar-Menu">
             <button className="Homepage-navbar-About">About</button>

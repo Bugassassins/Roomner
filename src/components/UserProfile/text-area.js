@@ -2,10 +2,10 @@ import React from "react";
 
 const TextArea=(props) => {
     return (
-        <div class="form-group">
-                <label>{props.question}</label>
+        <div className="form-group">
+                <h1>{props.question}</h1>
                 <input type="text" 
-                class="form-control"
+                className="form-control"
                 onChange={e=>props.changeAnswer(props.id,e.target.value)}
                 />
             </div>

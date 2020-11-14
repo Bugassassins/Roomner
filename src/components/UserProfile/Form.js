@@ -1,5 +1,5 @@
 import React, { useState,useContext } from "react";
-import Firebase from "firebase"
+import firebaseApp from "../../firebaseApp"
 import { AuthContext } from "../../App.js";
 import TextArea from "./text-area";
 const Form=(props) => {
@@ -14,10 +14,12 @@ const Form=(props) => {
     }
     const writeUserData=(e)=>{
         e.preventDefault();
-        Firebase.database().ref('user/'+Auth.User.additionalUserInfo.profile.id).set({
+        firebaseApp.database().ref('user/'+JSON.parse(window.sessionStorage.getItem(
+            `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
+            )).uid).set({
             answer
           }).then(response=>{
-            window.location.reload();
+            Auth.setNewUser(false);
           })
           .catch(err=>{
               alert("sorry we screwed up")
@@ -26,11 +28,13 @@ const Form=(props) => {
     return (
     <div>
         <form onSubmit={writeUserData}>
-            <button onClick={props.logoutFunc}>Logout</button>
+            <button onClick={props.logoutFunc} className="Hero-cta">Logout</button>
+            <h1>Don't refresh page It will lead to bad things</h1>
+            <h1>Don't Submit Empty also. It will lead to bad things</h1>
                 {Info.map((value,i)=>{
-                    return(<TextArea question={value} changeAnswer={changeAnswer} id={i}></TextArea>)
+                    return(<TextArea key={i} question={value} changeAnswer={changeAnswer} id={i}></TextArea>)
                 })}
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" className="Hero-cta">Submit</button>
         </form>
     </div>
     )
