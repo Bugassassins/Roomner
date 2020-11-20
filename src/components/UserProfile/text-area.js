@@ -6,7 +6,7 @@ const TextArea=(props) => {
                 <h1>{props.question}</h1>
                 <input type="text" 
                 className="form-control"
-                onChange={e=>props.changeAnswer(props.id,e.target.value)}
+                onChange={e=>props.changeAnswer(props.question,e.target.value)}
                 />
             </div>
     )

@@ -4,7 +4,6 @@ import { bool, any, object } from 'prop-types';
 
 const ProtectedRouteHoc = ({ component: Component, isLoggedIn,logoutFunc, ...rest }) => {
 	if (isLoggedIn || rest.public) {
-		console.log('PROTECTOR')
 		return (
 			<Route
 				{...rest}
