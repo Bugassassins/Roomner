@@ -17,6 +17,7 @@ const UserProfile=(props) => {
             `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
             )).uid);
         userDataRef.on('value', function(userArrayRef) {
+            console.log(userArrayRef)
                 setUserArray(userArrayRef.val()?userArrayRef.val().answer:null);
                 setLoading(false);
         });
