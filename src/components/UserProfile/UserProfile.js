@@ -24,7 +24,7 @@ const UserProfile=(props) => {
     },[])
     let show;
     if(!Auth.isNewUser){
-        show=<div>
+        show = <div className="Homepage-bg">
                 <UserProfileNavbar logoutFunc={props.logoutFunc} />
                 {loading?<img src={loadgif} alt="loading"/>:<h1>DashBoard</h1>}
                 {   userObject?

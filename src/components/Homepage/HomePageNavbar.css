@@ -51,6 +51,14 @@
     cursor: pointer;
 }
 
+.Homepage-navbar-Login:hover {
+    color: var(--secondary);
+}
+
+.Homepage-navbar-About:hover {
+    color: var(--secondary);
+}
+
 @media(min-width: 1600px) {
     .Homepage-navbar-Header {
         width: 1600px;

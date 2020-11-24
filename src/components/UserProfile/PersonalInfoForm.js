@@ -3,6 +3,8 @@ import firebaseApp from "../../firebaseApp"
 import { AuthContext } from "../../App.js";
 import TextArea from "./text-area";
 import Questions from "./Questions";
+import {Info, Quest, Options} from "./QuesArray";
+import UserProfileNavbar from "./UserProfileNavbar";
 
 const PersonalInfoForm=(props) => {
     const userSessionData=JSON.parse(window.sessionStorage.getItem(
@@ -11,9 +13,7 @@ const PersonalInfoForm=(props) => {
     let [result,setResult]=useState(Array.from({length: 20},()=> Array.from({length: 3}, () => 0)));
     const [curQuest,setCurQuest]=useState(-1);
     const [userPersonalInfo,setUserPersonalInfo]=useState({email:userSessionData.email});
-    const Info=["name","age","image","gender","shortBio","phone"];
-    const Quest=["abc","def","ghi","jkl","mno","pqr","stu","vwx","yza"];
-    const Options=[["1","2","3","4"],["1","2","3","4"],["1","2","3","4"],["1","2","3","4"],["1","2","3","4"],["1","2","3","4"],["1","2","3","4"],["1","2","3","4"],["1","2","3","4"]];
+    
     const Auth = useContext(AuthContext);
     const handleFormChange=(keyName,value)=>{
         setUserPersonalInfo((prev)=>{
@@ -47,7 +47,6 @@ const PersonalInfoForm=(props) => {
     let form;
     if(curQuest===-1){
         form=  <form onSubmit={writeUserData}>
-                    <button onClick={props.logoutFunc} className="Hero-cta">Logout</button>
                     <h1>Don't refresh page It will lead to bad things</h1>
                     <h1>Don't Submit Empty also. It will lead to bad things</h1>
                         {Info.map((value,i)=>{
@@ -81,7 +80,8 @@ const PersonalInfoForm=(props) => {
     }
     return (
         <div>
-        {form}
+            <UserProfileNavbar />
+            {form}
         </div>
     )
 }

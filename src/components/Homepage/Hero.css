@@ -29,6 +29,26 @@
     text-align: center;
 }
 
+.Hero-cta{
+    background: #6C63FF 0% 0% no-repeat padding-box;
+    border: 0;
+    border-radius: 30px;
+    font: normal normal normal 24px/53px Segoe UI;
+    letter-spacing: -0.8px;
+    color: #FFFFFF;
+    opacity: 1;
+    padding: 0px 30px;
+    margin-top: 15px;
+
+    cursor: pointer;    
+    text-align: center;
+}
+
+.Hero-cta:hover {
+    /* background-color: var(--secondary); */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 @media(max-width: 600px) {
     .Hero-heading {
         font: normal normal normal 35px/72px Poppins;
