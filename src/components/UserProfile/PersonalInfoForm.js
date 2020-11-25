@@ -20,6 +20,9 @@ const PersonalInfoForm=(props) => {
             return {...prev,[keyName]:value};
         })
     }
+    const handleAnswerQuestion=(()=>{
+        setCurQuest(0);
+    })
     const onButtonChange=(id,value,ind)=>{
         if(ind===2)
             value=(result[id][ind]?0:1);
@@ -33,20 +36,18 @@ const PersonalInfoForm=(props) => {
         e.preventDefault();
         firebaseApp.database().ref('user/'+userSessionData.uid).set({
             userPersonalInfoObj:userPersonalInfo,
-            answerArray:result
-
+            answerArray:result,
+            recommend:1
         }).then(response=>{
-            if(curQuest===-1)
-                setCurQuest(0);
-            else
-                Auth.setNewUser(false);
+            props.handlePing();
+            Auth.setNewUser(false);
         }).catch(err=>{
             alert("sorry we screwed up")
         })
     }
     let form;
     if(curQuest===-1){
-        form=  <form onSubmit={writeUserData}>
+        form=  <div>
                     <h1>Don't refresh page It will lead to bad things</h1>
                     <h1>Don't Submit Empty also. It will lead to bad things</h1>
                         {Info.map((value,i)=>{
@@ -62,8 +63,8 @@ const PersonalInfoForm=(props) => {
                                 return(<TextArea key={i} question={value} changeAnswer={handleFormChange} id={i}></TextArea>)
                             }
                         })}
-                    <button type="submit" className="Hero-cta">Submit</button>
-                </form>
+                    <button type="button" className="Hero-cta" onClick={handleAnswerQuestion}>Answer Questions</button>
+                </div>
     }
     else{
         let button;
