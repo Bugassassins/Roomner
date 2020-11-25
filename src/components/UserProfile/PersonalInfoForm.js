@@ -10,7 +10,7 @@ const PersonalInfoForm=(props) => {
     const userSessionData=JSON.parse(window.sessionStorage.getItem(
         `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
     ))
-    let [result,setResult]=useState(Array.from({length: 20},()=> Array.from({length: 3}, () => 0)));
+    let [result,setResult]=useState(Array.from({length: 16},()=> Array.from({length: 3}, () => 0)));
     const [curQuest,setCurQuest]=useState(-1);
     const [userPersonalInfo,setUserPersonalInfo]=useState({email:userSessionData.email});
     

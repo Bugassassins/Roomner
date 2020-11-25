@@ -4,21 +4,54 @@ import PersonalInfoForm from './PersonalInfoForm';
 import { AuthContext } from "../../App.js";
 import firebaseApp from "../../firebaseApp";
 import loadgif from "../../images/loadgif.gif"
+import axios from "axios"
 const UserProfile=(props) => {
     const Auth = useContext(AuthContext);
+    const [userRecommendation,setUserRecommendation]=useState(null);
     const [userObject,setUserObject]=useState({});
     const [loading,setLoading]=useState(false);
+    const [loading2,setLoading2]=useState(false);
     const handleEdit=()=>{
         Auth.setNewUser(true)
     }
+    const handlePing=()=>{
+        axios.get('https://roomnerapi.herokuapp.com/'+JSON.parse(window.sessionStorage.getItem(
+            `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
+            )).uid)
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+    }
+    const handlePingEnd=()=>{
+        axios.get('https://roomnerapi.herokuapp.com/end/'+JSON.parse(window.sessionStorage.getItem(
+            `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
+            )).uid)
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+    }
     useEffect(() => {
         setLoading(true);
+        setLoading2(true);
         const userDataRef = firebaseApp.database().ref('user/'+JSON.parse(window.sessionStorage.getItem(
             `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
             )).uid);
         userDataRef.on('value', function(userObjRef) {
                 setUserObject(userObjRef.val()?userObjRef.val().userPersonalInfoObj:{});
                 setLoading(false);
+        });
+        const recommendationRef = firebaseApp.database().ref('userScore/'+JSON.parse(window.sessionStorage.getItem(
+            `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
+            )).uid);
+        recommendationRef.on('value', function(userScoreArrayRef) {
+                setUserRecommendation(userScoreArrayRef.val()?userScoreArrayRef.val().scoresArray:null);
+                setLoading2(false);
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
@@ -39,6 +72,15 @@ const UserProfile=(props) => {
                     :<h1>I told you bad things will happen. Click on Edit and fill again</h1>
                 }
                 <button className="Hero-cta" onClick={handleEdit}>Edit</button>
+                <button className="Hero-cta" onClick={handlePing}>PingAPI</button>
+                <button className="Hero-cta" onClick={handlePingEnd}>Dont Recommend</button>
+                {loading2?<img src={loadgif} alt="loading"/>:null}
+                {
+                    userRecommendation?
+                        userRecommendation.map((ele)=><p><b>{ele[1]+" -> "+ele[0]}</b></p>)
+                    :
+                    <p>Press Ping API</p>
+                }
             </div>
     }
     else
