@@ -15,40 +15,60 @@ const UserProfile=(props) => {
         Auth.setNewUser(true)
     }
     const handlePing=()=>{
-        axios.get('https://roomnerapi.herokuapp.com/'+JSON.parse(window.sessionStorage.getItem(
+        var updates = {};
+        updates['user/'+JSON.parse(window.sessionStorage.getItem(
             `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
-            )).uid)
-        .then(function (response) {
-            console.log(response.data);
+            )).uid+'/recommend']=1;
+        firebaseApp.database().ref().update(updates)
+        .then((response)=>{
+            axios.get('https://roomnerapi.herokuapp.com/'+JSON.parse(window.sessionStorage.getItem(
+                `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
+                )).uid)
+            .then((response)=>{
+                console.log(response.data);
+            })
+            .catch((error)=>{
+                console.log(error);
+            })
         })
-        .catch(function (error) {
-            console.log(error);
+        .catch((error)=>{
+            console.log("Error here")
         })
     }
     const handlePingEnd=()=>{
-        axios.get('https://roomnerapi.herokuapp.com/end/'+JSON.parse(window.sessionStorage.getItem(
-            `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
-            )).uid)
-        .then(function (response) {
-            console.log(response.data);
+        var updates = {};
+        updates['user/'+JSON.parse(window.sessionStorage.getItem(
+                `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
+                )).uid+'/recommend']=0;
+        firebaseApp.database().ref().update(updates)
+        .then((response)=>{
+            axios.get('https://roomnerapi.herokuapp.com/end/'+JSON.parse(window.sessionStorage.getItem(
+                `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
+                )).uid)
+            .then((response)=>{
+                console.log(response.data);
+            })
+            .catch((error)=>{
+                console.log(error);
+            })
         })
-        .catch(function (error) {
-            console.log(error);
+        .catch((error)=>{
+            console.log("Error here")
         })
     }
     useEffect(() => {
         setLoading(true);
         setLoading2(true);
         const userDataRef = firebaseApp.database().ref('user/'+JSON.parse(window.sessionStorage.getItem(
-            `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
-            )).uid);
+                `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
+                )).uid);
         userDataRef.on('value', function(userObjRef) {
                 setUserObject(userObjRef.val()?userObjRef.val().userPersonalInfoObj:{});
                 setLoading(false);
         });
         const recommendationRef = firebaseApp.database().ref('userScore/'+JSON.parse(window.sessionStorage.getItem(
-            `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
-            )).uid);
+                `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
+                )).uid);
         recommendationRef.on('value', function(userScoreArrayRef) {
                 setUserRecommendation(userScoreArrayRef.val()?userScoreArrayRef.val().scoresArray:null);
                 setLoading2(false);
@@ -71,13 +91,16 @@ const UserProfile=(props) => {
                     </div>
                     :<h1>I told you bad things will happen. Click on Edit and fill again</h1>
                 }
+                {/* This button will edit your info. and update your array */}
                 <button className="Hero-cta" onClick={handleEdit}>Edit</button>
+                {/* To reverse Dont Recommend OR To recalculate Scores Array. First Ping after Registration or edit is done automatically */}
                 <button className="Hero-cta" onClick={handlePing}>PingAPI</button>
+                {/* To Negate the occurance of your score in everyone array */}
                 <button className="Hero-cta" onClick={handlePingEnd}>Dont Recommend</button>
                 {loading2?<img src={loadgif} alt="loading"/>:null}
                 {
                     userRecommendation?
-                        userRecommendation.map((ele)=><p><b>{ele[1]+" -> "+ele[0]}</b></p>)
+                        userRecommendation.map((ele,i)=><p id={i} key={i}><b>{ele[1]+" -> "+ele[0]}</b></p>)
                     :
                     <p>Press Ping API</p>
                 }
@@ -86,7 +109,7 @@ const UserProfile=(props) => {
     else
     {
         show=<div>
-                <PersonalInfoForm logoutFunc={props.logoutFunc}></PersonalInfoForm>
+                <PersonalInfoForm logoutFunc={props.logoutFunc} handlePing={handlePing}></PersonalInfoForm>
             </div>
     }
     return (
