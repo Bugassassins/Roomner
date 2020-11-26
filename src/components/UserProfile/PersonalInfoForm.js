@@ -4,7 +4,10 @@ import { AuthContext } from "../../App.js";
 import TextArea from "./text-area";
 import Questions from "./Questions";
 import {Info, Quest, Options} from "./QuesArray";
-import UserProfileNavbar from "./UserProfileNavbar";
+import Logo from "../../images/Homepage_assets/logo.png";
+import Visible from "../../images/Form_assests/visible.svg";
+import Start from "../../images/Form_assests/start.png";
+import "./PersonalInfoForm.css";
 
 const PersonalInfoForm=(props) => {
     const userSessionData=JSON.parse(window.sessionStorage.getItem(
@@ -48,31 +51,38 @@ const PersonalInfoForm=(props) => {
     let form;
     if(curQuest===-1){
         form=  <div>
-                    <h1>Don't refresh page It will lead to bad things</h1>
-                    <h1>Don't Submit Empty also. It will lead to bad things</h1>
+                    <p>Don't refresh page It will lead to bad things</p>
+                    <p>Don't Submit Empty also. It will lead to bad things</p>
                         {Info.map((value,i)=>{
                             if(value==="gender"){
                                 return (<div id={i} key={i} onChange={(event)=>{
                                     handleFormChange(value,event.target.value)
                                 }}>
-                                    <h1>{value}</h1>
-                                    <input type="radio" value={0} name="gender"/> Male
-                                    <input type="radio" value={1} name="gender"/> Female
+                                    <h1 className="form-name">{value}</h1>
+                                    <div className="form-radio-container">
+                                        <input type="radio" id="male" value={0} name="gender" />
+                                        <label for="male" className="form-radio">Male</label>
+                                        <input type="radio" id="female" value={1} name="gender" />
+                                        <label for="female" className="form-radio">Female</label>
+                                    </div>
                                 </div>)
                             }else{
                                 return(<TextArea key={i} question={value} changeAnswer={handleFormChange} id={i}></TextArea>)
                             }
                         })}
-                    <button type="button" className="Hero-cta" onClick={handleAnswerQuestion}>Answer Questions</button>
+                    <p className="form-visiblity">
+                        <img src={Visible} alt="..." /> This info will be visible to others
+                    </p>
+                    <button type="button" className="Homepage-btn" onClick={handleAnswerQuestion}>Next</button>
                 </div>
     }
     else{
         let button;
         if(curQuest===Quest.length-1){
-            button=<button type="button" className="Hero-cta" onClick={(e)=>writeUserData(e)}>submit</button>
+            button=<button type="button" className="Homepage-btn" onClick={(e)=>writeUserData(e)}>submit</button>
         }
         else{
-            button=<button type="button" className="Hero-cta" onClick={()=>setCurQuest(curQuest+1)}>next</button>
+            button=<button type="button" className="Homepage-btn" onClick={()=>setCurQuest(curQuest+1)}>next</button>
         }
         form=   <div>
                 <Questions key={curQuest} question={Quest[curQuest]} options={Options[curQuest]} onButtonChange={onButtonChange} id={curQuest}></Questions>
@@ -80,9 +90,19 @@ const PersonalInfoForm=(props) => {
                 </div>
     }
     return (
-        <div>
-            <UserProfileNavbar />
-            {form}
+        <div className="form-bg">
+            <div className="form-header">
+                <img className="Homepage-navbar-Logo" src={Logo} alt="logo" />
+            </div>
+            <div className="form-container">
+                <div className="form-image-conatiner">
+                    <img src={Start} alt="Get Started" className="form-image" />
+                </div>
+                <div className="form-body">
+                    <h1 className="form-title">Lets get you started</h1>
+                    {form}
+                </div>
+            </div>
         </div>
     )
 }

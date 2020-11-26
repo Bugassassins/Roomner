@@ -76,7 +76,8 @@ const UserProfile=(props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     let show;
-    if(!Auth.isNewUser){
+    // if(!Auth.isNewUser){
+    if(0) {
         show = <div className="Homepage-bg">
                 <UserProfileNavbar logoutFunc={props.logoutFunc} />
                 {loading?<img src={loadgif} alt="loading"/>:<h1>DashBoard</h1>}
@@ -92,11 +93,11 @@ const UserProfile=(props) => {
                     :<h1>I told you bad things will happen. Click on Edit and fill again</h1>
                 }
                 {/* This button will edit your info. and update your array */}
-                <button className="Hero-cta" onClick={handleEdit}>Edit</button>
+                <button className="Homepage-btn" onClick={handleEdit}>Edit</button>
                 {/* To reverse Dont Recommend OR To recalculate Scores Array. First Ping after Registration or edit is done automatically */}
-                <button className="Hero-cta" onClick={handlePing}>PingAPI</button>
+                <button className="Homepage-btn" onClick={handlePing}>PingAPI</button>
                 {/* To Negate the occurance of your score in everyone array */}
-                <button className="Hero-cta" onClick={handlePingEnd}>Dont Recommend</button>
+                <button className="Homepage-btn" onClick={handlePingEnd}>Dont Recommend</button>
                 {loading2?<img src={loadgif} alt="loading"/>:null}
                 {
                     userRecommendation?

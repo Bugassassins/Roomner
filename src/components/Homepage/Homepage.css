@@ -107,6 +107,7 @@
 .Homepage-btn:hover {
     /* background-color: var(--secondary); */
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition: 0.3s;
 }
 
 .Homepage-footer {

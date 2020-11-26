@@ -1,4 +1,11 @@
-const Info = ["name", "age", "image", "gender", "shortBio", "phone"];
+const Info = [
+    "Your Name",
+    "Your Age",
+    "gender",
+    "Your Contact Number",
+    "Introduce Yourself",
+    "Upload Your Profile Pic"
+];
 const Quest = [
     "How often do you prefer cleaning your room?",
     "I am a",
@@ -36,4 +43,4 @@ const Options = [
     ["Large-friend circle", "Few good friends", "Prefer being alone"]
 ];
 
-export {Info, Quest, Options};
+export { Info, Quest, Options };

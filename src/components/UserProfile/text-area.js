@@ -3,7 +3,7 @@ import React from "react";
 const TextArea=(props) => {
     return (
         <div className="form-group">
-                <h1>{props.question}</h1>
+                <h1 className="form-name">{props.question}</h1>
                 <input type="text" 
                 className="form-control"
                 onChange={e=>props.changeAnswer(props.question,e.target.value)}

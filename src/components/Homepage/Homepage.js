@@ -37,7 +37,7 @@ const Homepage = (props) => {
         })
     }
     return (
-        <>
+        <div className="bg-grey">
         <div className="Homepage-bg">
             <HomePageNavbar handleLogin={signInWithGoogle} />
             <div className="Homepage-div">
@@ -75,7 +75,7 @@ const Homepage = (props) => {
         </div>
 
         <Footnote />
-        </>
+        </div>
     );
 };
 
