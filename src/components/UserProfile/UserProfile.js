@@ -85,7 +85,7 @@ const UserProfile=(props) => {
                         <p>NAME:{userObject.name}</p>
                         <p>AGE:{userObject.age}</p>
                         <p>GENDER:{userObject.gender==="1"?"Female":"Male"}</p>
-                        <p>SHORT BIO:{userObject.shortBio}</p>
+                        <p>SHORT BIO:{userObject.bio}</p>
                         <p>EMAIL:{userObject.email}</p>
                         <img src={userObject.image} alt="UserImg" />
                     </div>

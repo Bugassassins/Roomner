@@ -23,8 +23,12 @@ const Questions=(props) => {
                     })}
                     <h1> </h1>
                     <div className="form-check">
-                        <input type="checkbox" className="form-check-input" name={props.id+2} key={0} onChange={e=>props.onButtonChange(props.id,e.target.value,2)}/>
-                        <label className="form-check-label" >Check me out</label>
+                        <label className="form-check-label" >Score : 25</label>
+                        <input className="form-check-input" type="radio" name={props.id+2} key={0} value={25} onChange={e=>props.onButtonChange(props.id,e.target.value,2)}/>
+                        <label className="form-check-label" >Score : 50</label>
+                        <input className="form-check-input" type="radio" name={props.id+2} key={1} value={50} onChange={e=>props.onButtonChange(props.id,e.target.value,2)}/>
+                        <label className="form-check-label" >Score : 75</label>
+                        <input className="form-check-input" type="radio" name={props.id+2} key={2} value={75} onChange={e=>props.onButtonChange(props.id,e.target.value,2)}/>
                     </div>
         </div>
     )

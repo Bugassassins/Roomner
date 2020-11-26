@@ -1,10 +1,10 @@
 const Info = [
-    "Your Name",
-    "Your Age",
-    "gender",
-    "Your Contact Number",
-    "Introduce Yourself",
-    "Upload Your Profile Pic"
+    ["Your Name","name"],
+    ["Your Age","age"],
+    ["Your Gender","gender"],
+    ["Your Contact Number","phone"],
+    ["Introduce Yourself","bio"],
+    ["Upload Your Profile Pic","img"]
 ];
 const Quest = [
     "How often do you prefer cleaning your room?",

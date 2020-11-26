@@ -27,8 +27,6 @@ const PersonalInfoForm=(props) => {
         setCurQuest(0);
     })
     const onButtonChange=(id,value,ind)=>{
-        if(ind===2)
-            value=(result[id][ind]?0:1);
         value=parseInt(value);
         result[id][ind]=value;
         setResult(
@@ -53,12 +51,12 @@ const PersonalInfoForm=(props) => {
         form=  <div>
                     <p>Don't refresh page It will lead to bad things</p>
                     <p>Don't Submit Empty also. It will lead to bad things</p>
-                        {Info.map((value,i)=>{
-                            if(value==="gender"){
+                        {Info.map((ele,i)=>{
+                            if(ele[1]==="gender"){
                                 return (<div id={i} key={i} onChange={(event)=>{
-                                    handleFormChange(value,event.target.value)
+                                    handleFormChange(ele[1],event.target.value)
                                 }}>
-                                    <h1 className="form-name">{value}</h1>
+                                    <h1 className="form-name">{ele[0]}</h1>
                                     <div className="form-radio-container">
                                         <input type="radio" id="male" value={0} name="gender" />
                                         <label for="male" className="form-radio">Male</label>
@@ -67,7 +65,7 @@ const PersonalInfoForm=(props) => {
                                     </div>
                                 </div>)
                             }else{
-                                return(<TextArea key={i} question={value} changeAnswer={handleFormChange} id={i}></TextArea>)
+                                return(<TextArea key={i} question={ele} changeAnswer={handleFormChange} id={i}></TextArea>)
                             }
                         })}
                     <p className="form-visiblity">
