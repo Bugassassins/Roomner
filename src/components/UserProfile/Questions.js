@@ -11,7 +11,7 @@ const Questions=(props) => {
                     return (
                         <div className="form-check">
                             <label className="form-check-label">{element}</label>
-                            <input className="form-check-input" type="radio" name={props.id + 1} key={i} value={i} onChange={e => props.onButtonChange(props.id, e.target.value, 1)} />
+                            <input className="form-check-input" type="radio" name={props.id + 0} key={i} value={i} onChange={e => props.onButtonChange(props.id, e.target.value, 0)} />
                         </div>);
                     })}
                 </div>
