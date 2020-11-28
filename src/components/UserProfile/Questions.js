@@ -1,7 +1,11 @@
-import React from "react";
-import "./Questions.css";
+import React, {  useState } from "react";import "./Questions.css";
+import { Radio } from "./Radio";
 
 const Questions=(props) => {
+    const [curChoice1,setCurChoice1]=useState(props.response[0]);
+    const [curChoice2,setCurChoice2]=useState(props.response[1]);
+    console.log(curChoice1);
+    console.log(props.response);
     return (
         <div className="form-group">
                 <h1 className="form-title">{props.question}</h1>
@@ -9,9 +13,10 @@ const Questions=(props) => {
                 <div className="form-options">
                 {props.options.map((element,i) => {
                     return (
-                        <div className="form-check">
+                        <div className="form-check" >
                             <label className="form-check-label">{element}</label>
-                            <input className="form-check-input" type="radio" name={props.id + 0} key={i} value={i} onChange={e => props.onButtonChange(props.id, e.target.value, 0)} />
+                            {/* <input className="form-check-input"  type="radio" name={props.id + 0} key={i} value={i} onChange={e => props.onButtonChange(props.id, e.target.value, 0)} />; */}
+                            <Radio value={i} id={props.id} ind={0} selected={curChoice1}  onChange={(id,val,ind) => {setCurChoice1(val);props.onButtonChange(id,val,ind)} }/>
                         </div>);
                     })}
                 </div>
@@ -22,7 +27,8 @@ const Questions=(props) => {
                     return (
                             <div className="form-check">
                                 <label className="form-check-label">{element}</label>
-                                <input className="form-check-input" type="radio" name={props.id+1} key={i} value={i} onChange={e=>props.onButtonChange(props.id,e.target.value,1)}/>
+                                {/* <input className="form-check-input" type="radio" name={props.id+1} key={i} value={i} onChange={e=>props.onButtonChange(props.id,e.target.value,1)}/> */}
+                                <Radio value={i} id={props.id} ind={1} selected={curChoice2}  onChange={(id,val,ind) => {setCurChoice2(val);props.onButtonChange(id,val,ind)} }/>
                             </div>);
                     })}
                     </div>

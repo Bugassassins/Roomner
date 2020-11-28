@@ -15,7 +15,7 @@ const PersonalInfoForm=(props) => {
     const userSessionData=JSON.parse(window.sessionStorage.getItem(
         `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
     ))
-    let [result,setResult]=useState(Array.from({length: 16},()=> Array.from({length: 3}, () => 0)));
+    const [result,setResult]=useState(Array.from({length: 16},()=> Array.from({length: 3}, () => 0)));
     const [curQuest,setCurQuest]=useState(-2);
     const [userPersonalInfo,setUserPersonalInfo]=useState({email:userSessionData.email});
     
@@ -33,9 +33,11 @@ const PersonalInfoForm=(props) => {
     })
     const onButtonChange=(id,value,ind)=>{
         value=parseInt(value);
-        result[id][ind]=value;
+        console.log(value,id,ind);
+        let temp=result;
+        temp[id][ind]=value;
         setResult(
-            result
+            temp
         );
     }
     const writeUserData=(e)=>{
@@ -115,7 +117,9 @@ const PersonalInfoForm=(props) => {
                     <img src={Start} alt="Get Started" className="form-image" />
                 </div>
                 <div className="form-body">
-                <Questions key={curQuest} question={Quest[curQuest]} options={Options[curQuest]} onButtonChange={onButtonChange} id={curQuest}></Questions>
+                <Questions key={curQuest} response={result[curQuest]} question={Quest[curQuest]} options={Options[curQuest]} onButtonChange={onButtonChange} id={curQuest}></Questions>
+                <button type="button" className="Homepage-btn" onClick={()=>setCurQuest(curQuest-1)}>Back</button>
+                
                 {button}
                 </div>
                </div> 
