@@ -14,8 +14,8 @@ function matchingAlgo(subject1,subject2){
         totp+=subject1[i][2];
         totq+=subject2[i+1][2];
     }
-    var percent_p=p_res/totp;
-    var percent_q=q_res/totq;
+    var percent_p=totp?p_res/totp:0;
+    var percent_q=totq?q_res/totq:0;
     res=Math.sqrt(percent_p*percent_q);
     return res;
 }
