@@ -25,7 +25,7 @@ const Quest = [
     "Which one do you prefer?"
 ];
 const Options = [
-    ["Daily", "When it starts looking dirty", "What cleaning?"],
+    ["Daily", "Only when it starts looking dirty", "What cleaning?"],
     ["Early Riser", "Night Owl", "Bit of both"],
     ["No", "Rarely", "Often"],
     ["Yes,I need a way to express myself", "Sometimes, but I could live without it", "I'm fine without one"],
