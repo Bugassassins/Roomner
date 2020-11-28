@@ -52,6 +52,9 @@ app.get("/:id", (req, res) => {
             //Handle Dont'Recommend
             if(allUserObject[uid].recommend==0||allUserObject[element[0]].recommend==0)
                 result=result>0?result*(-1):result;
+            //Handle Same User
+            if(uid==element[0])
+                result=result>0?result*(-1):result;
             //Return Score
             return [result,element[0]];
         })
