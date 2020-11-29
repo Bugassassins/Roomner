@@ -33,7 +33,7 @@ const PersonalInfoForm=(props) => {
     })
     const onButtonChange=(id,value,ind)=>{
         value=parseInt(value);
-        console.log(value,id,ind);
+        // console.log(value,id,ind);
         let temp=result;
         temp[id][ind]=value;
         setResult(
@@ -47,10 +47,9 @@ const PersonalInfoForm=(props) => {
             answerArray:result,
             recommend:1
         }).then(response=>{
-            props.handlePing();
             Auth.setNewUser(false);
         }).catch(err=>{
-            alert("sorry we screwed up")
+            alert(err);
         })
     }
     let form;

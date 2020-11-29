@@ -91,7 +91,13 @@ app.get("/:id", (req, res) => {
                 })
                 firebaseApp.database().ref().update(updates)
                 .then((response)=>{
-                    res.send("RoomnerAPI : Your values are Recorded")
+                    const scoresArrayFiltered = scoresArray.filter((ele)=>{
+                        return ele[0]>0;
+                    })
+                    const recommendationArray=scoresArrayFiltered.map((ele)=>{
+                        return [allUserObject[ele[1]].userPersonalInfoObj,ele[0]]
+                    })
+                    res.send(recommendationArray)
                 })
                 .catch((error)=>{
                     res.send("RoomnerAPI : Error11")

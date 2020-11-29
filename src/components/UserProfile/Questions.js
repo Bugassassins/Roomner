@@ -4,8 +4,8 @@ import { Radio } from "./Radio";
 const Questions=(props) => {
     const [curChoice1,setCurChoice1]=useState(props.response[0]);
     const [curChoice2,setCurChoice2]=useState(props.response[1]);
-    console.log(curChoice1);
-    console.log(props.response);
+    // console.log(curChoice1);
+    // console.log(props.response);
     return (
         <div className="form-group">
                 <h1 className="form-title">{props.question}</h1>
