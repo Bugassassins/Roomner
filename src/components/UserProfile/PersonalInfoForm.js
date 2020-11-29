@@ -16,7 +16,7 @@ const PersonalInfoForm=(props) => {
         `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
     ))
     const [result,setResult]=useState(Array.from({length: 16},()=> Array.from({length: 3}, () => 0)));
-    const [curQuest,setCurQuest]=useState(0);
+    const [curQuest,setCurQuest]=useState(-2);
     const [userPersonalInfo,setUserPersonalInfo]=useState({email:userSessionData.email});
     
     const Auth = useContext(AuthContext);
