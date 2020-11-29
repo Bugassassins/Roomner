@@ -33,7 +33,7 @@ const PersonalInfoForm=(props) => {
     })
     const onButtonChange=(id,value,ind)=>{
         value=parseInt(value);
-        console.log(value,id,ind);
+        // console.log(value,id,ind);
         let temp=result;
         temp[id][ind]=value;
         setResult(

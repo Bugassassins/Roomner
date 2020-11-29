@@ -38,12 +38,13 @@ const Questions=(props) => {
                     <br />
                     <h1 className="form-name">Importance</h1>
                     <div className="form-importance">
+                        {/* <input id="importance1" type="radio" name={props.id + 2} key={0} value={25} onChange={e => props.onButtonChange(props.id, e.target.value, 2)} /> */}
                         <Radio value={25} id={props.id} ind={2} selected={curChoice3}  onChange={(id,val,ind) => {setCurChoice3(val);props.onButtonChange(id,val,ind)} }/>
                         <label htmlFor="importance1" >A little</label>
-
+                        {/* <input id="importance2" type="radio" name={props.id + 2} key={1} value={50} onChange={e => props.onButtonChange(props.id, e.target.value, 2)} /> */}
                         <Radio value={50} id={props.id} ind={2} selected={curChoice3}  onChange={(id,val,ind) => {setCurChoice3(val);props.onButtonChange(id,val,ind)} }/>
                         <label htmlFor="importance2" >Somewhat</label>
-                        
+                        {/* <input id="importance3" type="radio" name={props.id + 2} key={2} value={75} onChange={e => props.onButtonChange(props.id, e.target.value, 2)} /> */}
                         <Radio value={75} id={props.id} ind={2} selected={curChoice3}  onChange={(id,val,ind) => {setCurChoice3(val);props.onButtonChange(id,val,ind)} }/>
                         <label htmlFor="importance3" >Very</label>
                     </div>
