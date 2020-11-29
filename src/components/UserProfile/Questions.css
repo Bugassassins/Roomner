@@ -55,8 +55,8 @@
     align-items: center;
     border-radius: 5px;
     background: var(--light-blue);
-    justify-content: space-evenly;
-    margin-bottom: 25px;
+    justify-content: space-between;
+    margin-bottom: 30px;
     /* border: 1px solid var(--regular-text); */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -64,39 +64,6 @@
 .form-importance:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     transition: 0.3s;
-}
-
-.form-importance input {
-    display: none;
-}
-
-.form-importance label {
-    width: 33.34%;
-    height: 100%;
-    text-align: center;
-    color: var(--dark-text);
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-18)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-poppins);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    font: normal normal normal 18px/24px Poppins;
-    letter-spacing: 0px;
-    opacity: 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    cursor: pointer;
-}
-
-.form-importance label:hover {
-    color: var(--primary);
-}
-
-.form-importance input[type="radio"]:checked + label {
-    background: var(--primary);
-    color: white;
-    border-radius: 5px;
-    cursor: default;
-    border: 1px solid var(--primary);
 }
 
 @media(max-width: 768px) {

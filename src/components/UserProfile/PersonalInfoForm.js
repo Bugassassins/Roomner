@@ -16,7 +16,7 @@ const PersonalInfoForm=(props) => {
         `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
     ))
     const [result,setResult]=useState(Array.from({length: 16},()=> Array.from({length: 3}, () => 0)));
-    const [curQuest,setCurQuest]=useState(-2);
+    const [curQuest,setCurQuest]=useState(0);
     const [userPersonalInfo,setUserPersonalInfo]=useState({email:userSessionData.email});
     
     const Auth = useContext(AuthContext);
@@ -116,10 +116,12 @@ const PersonalInfoForm=(props) => {
                     <img src={Start} alt="Get Started" className="form-image" />
                 </div>
                 <div className="form-body">
-                <Questions key={curQuest} response={result[curQuest]} question={Quest[curQuest]} options={Options[curQuest]} onButtonChange={onButtonChange} id={curQuest}></Questions>
-                <button type="button" className="Homepage-btn" onClick={()=>setCurQuest(curQuest-1)}>Back</button>
-                
-                {button}
+                    
+                    <Questions key={curQuest} response={result[curQuest]} question={Quest[curQuest]} options={Options[curQuest]} onButtonChange={onButtonChange} id={curQuest}></Questions>
+                    <div className="form-btn-container">
+                        <button type="button" className="Homepage-btn Homepage-btn-outline" onClick={()=>setCurQuest(curQuest-1)}>Previous</button>
+                        {button}
+                    </div>
                 </div>
                </div> 
     }

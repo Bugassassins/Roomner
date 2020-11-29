@@ -71,8 +71,8 @@ const UserProfile=(props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[Auth.isNewUser])
     let show;
-    // if(0) {
-    if(!Auth.isNewUser){
+    if(0) {
+    // if(!Auth.isNewUser){
         show = <div className="Homepage-bg">
                 <UserProfileNavbar logoutFunc={props.logoutFunc}/>
                 <h1>DashBoard</h1>
