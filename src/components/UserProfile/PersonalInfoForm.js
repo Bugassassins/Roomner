@@ -20,6 +20,7 @@ const PersonalInfoForm=(props) => {
     const [userPersonalInfo,setUserPersonalInfo]=useState({email:userSessionData.email});
     
     const Auth = useContext(AuthContext);
+    
     const handleFormChange=(keyName,value)=>{
         setUserPersonalInfo((prev)=>{
             return {...prev,[keyName]:value};

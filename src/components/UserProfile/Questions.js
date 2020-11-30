@@ -19,7 +19,6 @@ const Questions=(props) => {
                     return (
                         <div className="form-check" >
                             <label className="form-check-label">{element}</label>
-                            {/* <input className="form-check-input"  type="radio" name={props.id + 0} key={i} value={i} onChange={e => props.onButtonChange(props.id, e.target.value, 0)} />; */}
                             <Radio value={i} id={props.id} ind={0} selected={curChoice1}  onChange={(id,val,ind) => {setCurChoice1(val);props.onButtonChange(id,val,ind)} }/>
                         </div>);
                     })}
@@ -31,7 +30,6 @@ const Questions=(props) => {
                     return (
                             <div className="form-check">
                                 <label className="form-check-label">{element}</label>
-                                {/* <input className="form-check-input" type="radio" name={props.id+1} key={i} value={i} onChange={e=>props.onButtonChange(props.id,e.target.value,1)}/> */}
                                 <Radio value={i} id={props.id} ind={1} selected={curChoice2}  onChange={(id,val,ind) => {setCurChoice2(val);props.onButtonChange(id,val,ind)} }/>
                             </div>);
                     })}

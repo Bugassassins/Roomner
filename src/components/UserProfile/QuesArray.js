@@ -26,9 +26,9 @@ const Quest = [
 ];
 const Options = [
     ["Daily", "Only when it starts looking dirty", "What cleaning?"],
-    ["Early Riser", "Night Owl", "Bit of both"],
+    ["Early Riser", "Bit of both", "Night Owl"],
     ["No", "Rarely", "Often"],
-    ["Yes,I need a way to express myself", "Sometimes, but I could live without it", "I'm fine without one"],
+    ["Yes, I need a way to express myself", "Sometimes, but I could live without it", "I'm fine without one"],
     ["Usually Daily", "2/3 time a week", "Once a week or less"],
     ["Yeah, sure", "Depends on the event", "I prefer to be in my own company"],
     ["Yes", "Fine, as long as it doesn't happen everyday", "No"],

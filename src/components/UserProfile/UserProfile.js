@@ -88,7 +88,7 @@ const UserProfile=(props) => {
                                 <p>SHORT BIO:{userObject.bio}</p>
                                 <p>EMAIL:{userObject.email}</p>
                                 <p>PHONE: {userObject.phone}</p>
-                                <img src={userObject.image} alt="UserImg" />
+                                <img src={userObject.img} height="200" alt="UserImg" />
                             </div>
                         :
                             <h1>Your Data was not stored correctly, Edit again</h1>
@@ -117,7 +117,7 @@ const UserProfile=(props) => {
                                         <p>SHORT BIO:{roomatePersonalObj.bio}</p>
                                         <p>EMAIL:{roomatePersonalObj.email}</p>
                                         <p>PHONE: {roomatePersonalObj.phone}</p>
-                                        <img src={roomatePersonalObj.image} alt="RoomieImg" />
+                                        <img src={roomatePersonalObj.img} height="200" alt="RoomieImg" />
                                     </div>
                                 )
                             })
