@@ -22,7 +22,7 @@ const UserProfile=(props) => {
         setLoading2(true);
         updates['user/'+userUID+'/recommend']=1;
         firebaseApp.database().ref().update(updates)
-        .then((response)=>{
+        .then((responseF)=>{
             axios.get('https://roomnerapi.herokuapp.com/'+userUID)
             .then((response)=>{
                 setLoading2(false);

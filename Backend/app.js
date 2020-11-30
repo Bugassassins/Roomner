@@ -39,22 +39,33 @@ app.get("/:id", (req, res) => {
         const thisUserAnswerArray=allUserObject[uid].answerArray;
 
         const otherUsersAnswerArrays=Object.keys(allUserObject).map((otherUserUid)=>{
-            return [otherUserUid,...allUserObject[otherUserUid].answerArray];
+            let otherUsersAnswerArray;
+            if(allUserObject[otherUserUid].answerArray){
+                otherUsersAnswerArray=allUserObject[otherUserUid].answerArray;
+            }else{
+                otherUsersAnswerArray=[-1];
+            }
+            return [otherUserUid,...otherUsersAnswerArray];
         })
 
         var scoresArray=[];
         scoresArray=otherUsersAnswerArrays.map((element)=>{
-            //Match Score
-            let result = matchingAlgo(thisUserAnswerArray,element);
-            //Handle Gender Difference
-            if(allUserObject[uid].userPersonalInfoObj.gender!=allUserObject[element[0]].userPersonalInfoObj.gender)
-                result=result>0?result*(-1):result;
-            //Handle Dont'Recommend
-            if(allUserObject[uid].recommend==0||allUserObject[element[0]].recommend==0)
-                result=result>0?result*(-1):result;
-            //Handle Same User
-            if(uid==element[0])
-                result=result>0?result*(-1):result;
+            let result;
+            if(thisUserAnswerArray&&element[1]!==-1){
+                //Match Score
+                result = matchingAlgo(thisUserAnswerArray,element);
+                //Handle Gender Difference
+                if(allUserObject[uid].userPersonalInfoObj.gender!=allUserObject[element[0]].userPersonalInfoObj.gender)
+                    result=result>0?result*(-1):result;
+                //Handle Dont'Recommend
+                if(allUserObject[uid].recommend==0||allUserObject[element[0]].recommend==0)
+                    result=result>0?result*(-1):result;
+                //Handle Same User
+                if(uid==element[0])
+                    result=result>0?result*(-1):result;
+            }else{
+                result = -1;
+            }
             //Return Score
             return [result,element[0]];
         })
@@ -86,7 +97,7 @@ app.get("/:id", (req, res) => {
                                 currArr.sort((a,b)=>{return b[0]-a[0]});
                                 updates['userScore/'+element[1]+'/scoresArray']=currArr;
                             }
-                        }//handled big error if some didnt pressed Ping API for first time and other did
+                        }//handled error if some didnt pressed Ping API for first time and other did
                     }
                 })
                 firebaseApp.database().ref().update(updates)
