@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { DefaultProfile } from "../../images/DefaultProfile";
+import Ques from "../../images/Form_assests/question.png";
+import Facebook from "../../images/Form_assests/Facebook.png";
 
 const TextArea=(props) => {
     const [baseImage, setBaseImage] = useState(DefaultProfile);
@@ -22,12 +24,10 @@ const TextArea=(props) => {
             try {
                 const base64 = await convertBase64(file);
                 setBaseImage(base64);
-                props.changeAnswer(props.question[1], baseImage);
+                props.changeAnswer(props.question[1], base64);
             }
             catch (error) {
-                console.log(error);
-                setBaseImage(DefaultProfile);
-                props.changeAnswer(props.question[1], baseImage);
+                alert(error);
             }
         }
         else {
@@ -96,13 +96,22 @@ const TextArea=(props) => {
         <div className="form-group">
             <h1 className="form-name">
                 {props.question[0]}
-                {/* <div class="tooltip">
-
-                    <span class="tooltiptext">Tooltip text</span>
-                </div> */}
             </h1>
-            Go to <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">facebook</a>
+            <div className="fb-button-container">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src={Facebook} alt="..." height="36"/></a>
+                <div className="tooltip">
+                    <img src={Ques} alt="tootip" className="tooltip-icon" />
+                    <span className="tooltiptext">
+                        <ol>
+                            <li>Visit facebook.com</li>
+                            <li>Click on your profile picture.</li>
+                            <li>Copy the link in your address bar.</li>
+                        </ol>
+                    </span>
+                </div>
+            </div>
             <input type="text"
+                placeholder="Eg. https://www.facebook.com/profile.php?id=100006960278928"
                 className="form-control"
                 onChange={e => props.changeAnswer(props.question[1], e.target.value)}
             />

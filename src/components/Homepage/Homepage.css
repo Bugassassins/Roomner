@@ -99,6 +99,7 @@
     opacity: 1;
     padding: 0px 30px;
     margin: 0;
+    outline: none;
 
     cursor: pointer;    
     text-align: center;
@@ -114,6 +115,7 @@
     opacity: 1;
     padding: 0px 30px;
     margin: 0;
+    outline: none;
 
     cursor: pointer;    
     text-align: center;
