@@ -2,7 +2,7 @@ const Info = [
     ["Your Name","name"],
     ["Your Age","age"],
     ["Your Gender","gender"],
-    ["Your Contact Number","phone"],
+    ["Link to Your Facebook Account","fb"],
     ["Introduce Yourself","bio"],
     ["Upload Your Profile Pic","img"]
 ];
@@ -38,7 +38,7 @@ const Options = [
     ["Good grades are important", "Happy with whatever last-night study gets me", "Grades do not matter"],
     ["It doesn,t bother me at all", "It's OK as long as it isn't every word", "It bothers me a lot"],
     ["Always", "Usually", "Rarely"],
-    ["Often", "Rarely", "Never"],
+    ["Never", "Rarely", "Often"],
     ["Weekends", "Ocasionally", "Only in Vacations"],
     ["Large-friend circle", "Few good friends", "Prefer being alone"]
 ];

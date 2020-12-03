@@ -110,7 +110,7 @@ const PersonalInfoForm=(props) => {
             button=<button type="button" className="Homepage-btn" onClick={(e)=>writeUserData(e)}>Submit</button>
         }
         else{
-            button=<button type="button" className="Homepage-btn" onClick={()=>setCurQuest(curQuest+1)}>Next</button>
+            button = <button type="button" className="Homepage-btn" onClick={() =>{ setCurQuest(curQuest + 1); window.scrollTo({ top: 0, behavior: 'smooth' });}}>Next</button>
         }
         form=  <div className="form-container"> 
                 <div className="form-image-hide">

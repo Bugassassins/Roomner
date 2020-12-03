@@ -38,7 +38,7 @@ const Questions=(props) => {
                     <h1 className="form-name">Importance</h1>
                     <div className="form-importance">
                         <RadioButton value={25} id={props.id} ind={2} selected={curChoice3}  onChange={(id,val,ind) => {setCurChoice3(val);props.onButtonChange(id,val,ind)} } text="A little"/>
-                        <RadioButton value={50} id={props.id} ind={2} selected={curChoice3}  onChange={(id,val,ind) => {setCurChoice3(val);props.onButtonChange(id,val,ind)} } text="Somewhat"/>
+                        <RadioButton value={50} id={props.id} ind={2} selected={curChoice3}  onChange={(id,val,ind) => {setCurChoice3(val);props.onButtonChange(id,val,ind)} } text="Moderately"/>
                         <RadioButton value={75} id={props.id} ind={2} selected={curChoice3}  onChange={(id,val,ind) => {setCurChoice3(val);props.onButtonChange(id,val,ind)} } text="Very"/>
                     </div>
         </div>
