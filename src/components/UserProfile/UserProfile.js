@@ -36,7 +36,7 @@ const UserProfile=(props) => {
                 }else{
                     setUserRecommendationArray(response.data)
                 }
-                // console.log(userRecommendationArray);
+                console.log(response.data)
             })
             .catch((error)=>{
                 console.log(error);
@@ -60,7 +60,7 @@ const UserProfile=(props) => {
                 }else{
                     setUserRecommendationArray(response.data)
                 }
-                // console.log(userRecommendationArray);
+                console.log(response.data);
             })
             .catch((error)=>{
                 console.log(error);

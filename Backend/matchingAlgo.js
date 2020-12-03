@@ -5,14 +5,16 @@ function matchingAlgo(subject1,subject2){
     var totq=0;
     var res;
     for(var i=0;i<15;i++){
-        if(subject1[i][1]==subject2[i+1][0]){
-            p_res+=subject1[i][2];
-        } 
-        if(subject1[i][0]==subject2[i+1][1]){
-            q_res+=subject2[i+1][2];
-        }
-        totp+=subject1[i][2];
-        totq+=subject2[i+1][2];
+        // if(subject1[i][1]==subject2[i+1][0]){
+        //     p_res+=subject1[i][2];
+        // } 
+        p_res+=Math.abs(Math.abs(subject1[i][1]-subject2[i+1][0])-2)*subject1[i][2];
+        // if(subject1[i][0]==subject2[i+1][1]){
+        //     q_res+=subject2[i+1][2];
+        // }
+        q_res+=Math.abs(Math.abs(subject1[i][0]-subject2[i+1][1])-2)*subject2[i+1][2];
+        totp+=2*subject1[i][2];
+        totq+=2*subject2[i+1][2];
     }
     var percent_p=totp?p_res/totp:0;
     var percent_q=totq?q_res/totq:0;
