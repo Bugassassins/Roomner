@@ -1,0 +1,43 @@
+.Userpage-container {
+    height: 100vh;
+}
+
+.Profile {
+    width: 30%;
+    height: 100%;
+    position: fixed;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.Recommendations {
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+    margin-left: 30%;
+    margin-top: 90px;
+    background: var(--light-blue);
+}
+
+.Userpage-navbar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0 30px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    background: white;
+}
+
+.Userpage-navbar img {
+    height: 100%;
+    width: auto;
+}
+
+.Profile img {
+    border-radius: 50%;
+}

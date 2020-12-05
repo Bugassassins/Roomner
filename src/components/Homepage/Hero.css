@@ -24,6 +24,7 @@
     opacity: 1;
     padding: 0px 30px;
     margin-top: 15px;
+    outline: none;
 
     cursor: pointer;    
     text-align: center;

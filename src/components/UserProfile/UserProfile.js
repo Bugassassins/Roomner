@@ -3,8 +3,10 @@ import UserProfileNavbar from './UserProfileNavbar';
 import PersonalInfoForm from './PersonalInfoForm';
 import { AuthContext } from "../../App.js";
 import firebaseApp from "../../firebaseApp";
-import loadgif from "../../images/loadgif.gif"
-import axios from "axios"
+import loadgif from "../../images/loadgif.gif";
+import axios from "axios";
+import "./UserProfile.css";
+
 const UserProfile=(props) => {
     const Auth = useContext(AuthContext);
     const [userObject,setUserObject]=useState({});
@@ -73,35 +75,37 @@ const UserProfile=(props) => {
     let show;
     // if(0) {
     if(!Auth.isNewUser){
-        show = <div className="Homepage-bg">
+        show = <div className="Userpage-container">
                 <UserProfileNavbar logoutFunc={props.logoutFunc}/>
-                <h1>DashBoard</h1>
+                {/* <h1>DashBoard</h1> */}
+                <div className="Profile">
                 {   
                     loading?
                         <img src={loadgif} alt="loading"/>
                     :
                         userObject?
                             <div>
+                                <img src={userObject.img} height="200" alt="UserImg" />
                                 <p>NAME:{userObject.name}</p>
                                 <p>AGE:{userObject.age}</p>
                                 <p>GENDER:{userObject.gender==="1"?"Female":"Male"}</p>
                                 <p>SHORT BIO:{userObject.bio}</p>
                                 <p>EMAIL:{userObject.email}</p>
                                 <p>FACEBOOK: {userObject.fb}</p>
-                                <img src={userObject.img} height="200" alt="UserImg" />
                             </div>
                         :
                             <h1>Your Data was not stored correctly, Edit again</h1>
                 }
-                <div>
-                    {/* This button will edit your info. and update your array */}
-                    <button className="Homepage-btn" onClick={handleEdit}>Edit</button>
-                    {/* To reverse Dont Recommend OR To recalculate Scores Array. First Ping after Registration or edit is done automatically */}
-                    <button className="Homepage-btn" onClick={handlePing}>PingAPI</button>
-                    {/* To Negate the occurance of your score in everyone array */}
-                    <button className="Homepage-btn" onClick={handlePingEnd}>Dont Recommend</button>
+                    <div>
+                        {/* This button will edit your info. and update your array */}
+                        <button className="Homepage-btn" onClick={handleEdit}>Edit</button>
+                        {/* To reverse Dont Recommend OR To recalculate Scores Array. First Ping after Registration or edit is done automatically */}
+                        <button className="Homepage-btn" onClick={handlePing}>PingAPI</button>
+                        {/* To Negate the occurance of your score in everyone array */}
+                        <button className="Homepage-btn" onClick={handlePingEnd}>Dont Recommend</button>
+                    </div>
                 </div>
-                <div>
+                <div className="Recommendations">
                 {
                     loading2?
                         <img src={loadgif} alt="loading2"/>
@@ -110,6 +114,7 @@ const UserProfile=(props) => {
                             userRecommendationArray.map(([roomatePersonalObj,score],i)=>{
                                 return(
                                     <div id={i} key={i}>
+                                        <img src={roomatePersonalObj.img} height="200" alt="RoomieImg" />
                                         <p>PERCENT:{Math.round(score*100)}%</p>
                                         <p>NAME:{roomatePersonalObj.name}</p>
                                         <p>AGE:{roomatePersonalObj.age}</p>
@@ -117,7 +122,6 @@ const UserProfile=(props) => {
                                         <p>SHORT BIO:{roomatePersonalObj.bio}</p>
                                         <p>EMAIL:{roomatePersonalObj.email}</p>
                                         <p>FACEBOOK: {roomatePersonalObj.fb}</p>
-                                        <img src={roomatePersonalObj.img} height="200" alt="RoomieImg" />
                                     </div>
                                 )
                             })
