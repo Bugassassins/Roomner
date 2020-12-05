@@ -17,35 +17,6 @@ const UserProfile=(props) => {
     const handleEdit=()=>{
         Auth.setNewUser(true)
     }
-    const handleBioChange=(keyName,value)=>{
-        setUserObject((prev)=>{
-            return {...prev,[keyName]:value};
-        })
-    }
-    const handleSubmit=()=>{
-        var updates = {};
-        setLoading2(true);
-        updates['user/'+userUID+'/userPersonalInfoObj']=userObject;
-        firebaseApp.database().ref().update(updates)
-        .then((responseF)=>{
-            axios.get('https://roomnerapi.herokuapp.com/'+userUID)
-            .then((response)=>{
-                setLoading2(false);
-                if(response.data.length===0||response.data==="RoomnerAPI : Error11"||response.data==="RoomnerAPI : Error12"||response.data==="RoomnerAPI : Error13"||response.data==="RoomnerAPI : Error14"){
-                    setUserRecommendationArray(null)
-                }else{
-                    setUserRecommendationArray(response.data)
-                }
-                console.log(response.data)
-            })
-            .catch((error)=>{
-                console.log(error);
-            })
-        })
-        .catch((error)=>{
-            console.log("Error here")
-        })
-    }
     const handlePing=()=>{
         var updates = {};
         setLoading2(true);
@@ -111,36 +82,13 @@ const UserProfile=(props) => {
                     :
                         userObject?
                             <div>
-                                {
-                                    Object.entries(userObject).map((element,i)=>{
-                                        return(
-                                           
-                                            <div>
-                                                {
-                                                    (element[0]==="gender")?
-                                                    <div id={i} key={i} onChange={(event)=>{
-                                                        handleBioChange(element[0],event.target.value)
-                                                    }}>
-                                                        gender
-                                                        <div>
-                                                            <input type="radio"  value={0} name="gender" />
-                                                            <label htmlFor="male" >Male</label>
-                                                            <input type="radio"  value={1} name="gender" />
-                                                            <label htmlFor="female" >Female</label>
-                                                        </div>
-                                                    </div>
-                                                    :
-                                                    <div>
-                                                        <p>{element[0]}</p>
-                                                        <input type="text" value={element[1]} onChange={(e)=>handleBioChange(element[0],e.target.value)}></input>
-                                                    </div>
-                                                } 
-                                            </div>
-                                        );
-                                    })
-                                }
+                                <p>NAME:{userObject.name}</p>
+                                <p>AGE:{userObject.age}</p>
+                                <p>GENDER:{userObject.gender==="1"?"Female":"Male"}</p>
+                                <p>SHORT BIO:{userObject.bio}</p>
+                                <p>EMAIL:{userObject.email}</p>
+                                <p>FACEBOOK: {userObject.fb}</p>
                                 <img src={userObject.img} height="200" alt="UserImg" />
-                                <input type="button" value="submit" onClick={handleSubmit} ></input>
                             </div>
                         :
                             <h1>Your Data was not stored correctly, Edit again</h1>
@@ -168,7 +116,7 @@ const UserProfile=(props) => {
                                         <p>GENDER:{roomatePersonalObj.gender==="1"?"Female":"Male"}</p>
                                         <p>SHORT BIO:{roomatePersonalObj.bio}</p>
                                         <p>EMAIL:{roomatePersonalObj.email}</p>
-                                        <p>PHONE: {roomatePersonalObj.phone}</p>
+                                        <p>FACEBOOK: {roomatePersonalObj.fb}</p>
                                         <img src={roomatePersonalObj.img} height="200" alt="RoomieImg" />
                                     </div>
                                 )

@@ -1,12 +1,13 @@
 import React from 'react';
 import "./HomePageNavbar.css";
 import logo from "../../images/Homepage_assets/logo.png"
+import { Link} from 'react-router-dom'
 const HomePageNavbar=(props)=>{
     return(
         <div className="Homepage-navbar-Header">
-            <img className="Homepage-navbar-Logo" src={logo} alt="logo"/>
+            <Link to="/"><img className="Homepage-navbar-Logo" src={logo} alt="logo"/></Link>
             <div className="Homepage-navbar-Menu">
-            <button className="Homepage-navbar-About">About</button>
+            <Link to="/about"><button className="Homepage-navbar-About">About</button></Link>
             <button className="Homepage-navbar-Login" onClick={props.handleLogin}>Login</button>
             </div>
         </div>

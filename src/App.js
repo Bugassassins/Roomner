@@ -4,7 +4,7 @@ import Homepage from "./components/Homepage/Homepage";
 import "./App.css";
 import protectedRoutes from './protectedRoutes'
 import ProtectedRouteHoc from './components/ProtectedRoutesHoc'
-
+import About from "./components/About/About"
 export const AuthContext = React.createContext(null);
 
 function App() {
@@ -35,6 +35,12 @@ function App() {
                 path="/"
                 exact={true}
                 render={(props) => <Homepage {...props}  />}
+              />
+              <Route
+                key="/about"
+                path="/about"
+                exact={true}
+                render={(props) => <About {...props}  />}
               />
             {protectedRoutes.map(route => (
               <ProtectedRouteHoc

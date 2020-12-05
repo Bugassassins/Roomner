@@ -9,6 +9,7 @@ import Visible from "../../images/Form_assests/visible.svg";
 import Hidden from "../../images/Form_assests/hidden.svg";
 import Start from "../../images/Form_assests/start.png";
 import Tea from "../../images/Form_assests/tea.png";
+import { DefaultProfile } from "../../images/DefaultProfile";
 import "./PersonalInfoForm.css";
 
 const PersonalInfoForm=(props) => {
@@ -17,7 +18,10 @@ const PersonalInfoForm=(props) => {
     ))
     const [result,setResult]=useState(Array.from({length: 16},()=> Array.from({length: 3}, () => 0)));
     const [curQuest,setCurQuest]=useState(-2);
-    const [userPersonalInfo,setUserPersonalInfo]=useState({email:userSessionData.email});
+    const [userPersonalInfo,setUserPersonalInfo]=useState({
+        email:userSessionData.email,
+        img:DefaultProfile
+    });
     
     const Auth = useContext(AuthContext);
     
