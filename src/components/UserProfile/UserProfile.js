@@ -86,23 +86,37 @@ const UserProfile=(props) => {
                         userObject?
                             <div>
                                 <img src={userObject.img} height="200" alt="UserImg" />
-                                <p>NAME:{userObject.name}</p>
-                                <p>AGE:{userObject.age}</p>
-                                <p>GENDER:{userObject.gender==="1"?"Female":"Male"}</p>
-                                <p>SHORT BIO:{userObject.bio}</p>
-                                <p>EMAIL:{userObject.email}</p>
-                                <p>FACEBOOK: {userObject.fb}</p>
+                                <h1 className="Profile-name">{userObject.name}</h1>
+                                <div className="Profile-bio">
+                                    <h4>BIO</h4>
+                                    <p>{userObject.bio}</p>
+                                </div>
+                                <div className="Profile-text">
+                                    <span>AGE </span>{userObject.age} years
+                                </div>
+                                <div className="Profile-text">
+                                    <span>GENDER </span>{userObject.gender==="1"?"Female":"Male"}
+                                </div>
+                                <div className="Profile-text">
+                                    <span>EMAIL </span>{userObject.email}
+                                </div>
+                                <div>
+                                    <span>FACEBOOK </span>{userObject.fb}
+                                </div>
                             </div>
                         :
                             <h1>Your Data was not stored correctly, Edit again</h1>
                 }
                     <div>
                         {/* This button will edit your info. and update your array */}
-                        <button className="Homepage-btn" onClick={handleEdit}>Edit</button>
+                        <button className="Profile-btn" onClick={handleEdit}>Edit Profile</button>
+                        <br />
                         {/* To reverse Dont Recommend OR To recalculate Scores Array. First Ping after Registration or edit is done automatically */}
-                        <button className="Homepage-btn" onClick={handlePing}>PingAPI</button>
+                        <button className="Profile-btn" onClick={handlePing}>PingAPI</button>
+                        <br />
                         {/* To Negate the occurance of your score in everyone array */}
-                        <button className="Homepage-btn" onClick={handlePingEnd}>Dont Recommend</button>
+                        <button className="Profile-btn" onClick={handlePingEnd}>Dont Recommend me anymore</button>
+                        <br />
                     </div>
                 </div>
                 <div className="Recommendations">
@@ -113,7 +127,7 @@ const UserProfile=(props) => {
                         userRecommendationArray?
                             userRecommendationArray.map(([roomatePersonalObj,score],i)=>{
                                 return(
-                                    <div id={i} key={i}>
+                                    <div id={i} key={i} className="Recommendations-Card">
                                         <img src={roomatePersonalObj.img} height="200" alt="RoomieImg" />
                                         <p>PERCENT:{Math.round(score*100)}%</p>
                                         <p>NAME:{roomatePersonalObj.name}</p>
