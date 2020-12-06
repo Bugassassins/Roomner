@@ -5,7 +5,7 @@ const UserProfileNavbar =(props)=>{
     return(
         <div className="Userpage-navbar">
             <img src={Logo} alt="logo" />
-            <button onClick={props.logoutFunc}>Logout</button>
+            <span onClick={props.logoutFunc} className="Navbar-logout">Logout</span>
         </div>
     )
 }

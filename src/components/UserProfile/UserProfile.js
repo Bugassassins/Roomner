@@ -6,6 +6,8 @@ import firebaseApp from "../../firebaseApp";
 import loadgif from "../../images/loadgif.gif";
 import axios from "axios";
 import "./UserProfile.css";
+import ProfileCard from "./ProfileCard";
+import Facebook from "../../images/Facebook.png";
 
 const UserProfile=(props) => {
     const Auth = useContext(AuthContext);
@@ -101,7 +103,7 @@ const UserProfile=(props) => {
                     :
                         userObject?
                             <div>
-                                <img src={userObject.img} height="200" alt="UserImg" />
+                                <img className="profile-pic" src={userObject.img} height="200" alt="UserImg" />
                                 <h1 className="Profile-name">{userObject.name}</h1>
                                 <div className="Profile-bio">
                                     <h4>BIO</h4>
@@ -116,9 +118,10 @@ const UserProfile=(props) => {
                                 <div className="Profile-text">
                                     <span>EMAIL </span>{userObject.email}
                                 </div>
-                                <div>
+                                {/* <div>
                                     <span>FACEBOOK </span>{userObject.fb}
-                                </div>
+                                </div> */}
+                                <a href={userObject.fb} target="_blank" rel="noopener noreferrer"><img src={Facebook} alt="Facebook" className="Profile-facebook" /></a>
                             </div>
                         :
                             <h1>Your Data was not stored correctly, Edit again</h1>
@@ -141,20 +144,8 @@ const UserProfile=(props) => {
                         <img className="loading-gif-2" src={loadgif} alt="loading2" height="70" width="70"/>
                     :
                         userRecommendationArray?
-                            userRecommendationArray.map(([roomatePersonalObj,score],i)=>{
-                                return(
-                                    <div id={i} key={i} className="Recommendations-Card">
-                                        <img src={roomatePersonalObj.img} height="200" alt="RoomieImg" />
-                                        <p>PERCENT:{Math.round(score*100)}%</p>
-                                        <p>NAME:{roomatePersonalObj.name}</p>
-                                        <p>AGE:{roomatePersonalObj.age}</p>
-                                        <p>GENDER:{roomatePersonalObj.gender==="1"?"Female":"Male"}</p>
-                                        <p>SHORT BIO:{roomatePersonalObj.bio}</p>
-                                        <p>EMAIL:{roomatePersonalObj.email}</p>
-                                        <p>FACEBOOK: {roomatePersonalObj.fb}</p>
-                                    </div>
-                                )
-                            })
+                                <ProfileCard userRecommendationArray={userRecommendationArray} />
+                           
                         :
                             <p>Sorry no POSITIVE matches found, Press Ping API again</p>
                 }
