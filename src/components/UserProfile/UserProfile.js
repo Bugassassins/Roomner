@@ -43,6 +43,22 @@ const UserProfile=(props) => {
             console.log("Error here")
         })
     }
+    const handlePingWithoutRecommend=()=>{
+        setLoading2(true);
+        axios.get('https://roomnerapi.herokuapp.com/'+userUID)
+        .then((response)=>{
+            setLoading2(false);
+            if(response.data.length===0||response.data==="RoomnerAPI : Error11"||response.data==="RoomnerAPI : Error12"||response.data==="RoomnerAPI : Error13"||response.data==="RoomnerAPI : Error14"){
+                setUserRecommendationArray(null)
+            }else{
+                setUserRecommendationArray(response.data)
+            }
+            console.log(response.data);
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
     const handlePingEnd=()=>{
         var updates = {};
         setLoading2(true);
@@ -69,7 +85,7 @@ const UserProfile=(props) => {
             setUserObject(userObjRef.val()?userObjRef.val().userPersonalInfoObj:{});
             setLoading(false);
         })
-        handlePing();
+        handlePingWithoutRecommend();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[Auth.isNewUser])
     let show;
@@ -112,7 +128,7 @@ const UserProfile=(props) => {
                         <button className="Profile-btn" onClick={handleEdit}>Edit Profile</button>
                         <br />
                         {/* To reverse Dont Recommend OR To recalculate Scores Array. First Ping after Registration or edit is done automatically */}
-                        <button className="Profile-btn" onClick={handlePing}>PingAPI</button>
+                        <button className="Profile-btn" onClick={handlePing}>Find Matches</button>
                         <br />
                         {/* To Negate the occurance of your score in everyone array */}
                         <button className="Profile-btn" onClick={handlePingEnd}>Dont Recommend me anymore</button>
@@ -122,7 +138,7 @@ const UserProfile=(props) => {
                 <div className="Recommendations">
                 {
                     loading2?
-                        <img src={loadgif} alt="loading2"/>
+                        <img className="loading-gif-2" src={loadgif} alt="loading2" height="70" width="70"/>
                     :
                         userRecommendationArray?
                             userRecommendationArray.map(([roomatePersonalObj,score],i)=>{
