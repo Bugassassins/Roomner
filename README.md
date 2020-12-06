@@ -22,7 +22,7 @@ Web app which helps to find the ideal room partner for you based on your persona
     - C++ (For testing Matching Algorithm)
 
 #### Working :
-- The Fronted (hosted on Firebase) authenticates user with google authentication. Then the user can fill in their information and answer the questions.
+- The Frontend (hosted on Firebase) authenticates user with google authentication. Then the user can fill in their information and answer the questions.
 - After submiting the form, Roomner API (hosted on heroku) calculates the score of the user with other users and return the recommendation array.
-- The User can remove themselves from the recommendation process by "Don't recommend" button.
+- The User can remove themselves from the recommendation process by "Don't recommend" button. They can again join in by pressing "Find Match".
 - Firebase Realtime Database is used for storing user data
