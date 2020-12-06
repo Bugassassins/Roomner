@@ -117,6 +117,24 @@ const TextArea=(props) => {
             />
         </div>
     )
+    }else if(props.question[1] === "age"){
+        return (
+            <div className="form-group">
+                <h1 className="form-name">{props.question[0]}</h1>
+                <input type="text" 
+                    className="form-control"
+                    onChange={e=>{
+                        const re = /^[0-9\b]+$/;
+                        if (e.target.value === '' || re.test(e.target.value)) {
+                            props.changeAnswer(props.question[1],e.target.value)
+                        }else{
+                            alert("Invalid Age")
+                            e.target.value=""
+                        }
+                    }}
+                />
+            </div>
+        )
     }
     else {
     return (
