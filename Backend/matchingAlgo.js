@@ -4,7 +4,7 @@ function matchingAlgo(subject1,subject2){
     var totp=0;
     var totq=0;
     var res;
-    for(var i=0;i<15;i++){
+    for(var i=0;i<16;i++){
         // if(subject1[i][1]==subject2[i+1][0]){
         //     p_res+=subject1[i][2];
         // } 
