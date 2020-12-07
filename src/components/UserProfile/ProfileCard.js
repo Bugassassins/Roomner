@@ -61,7 +61,7 @@ const ProfileCard = (props) => {
                     <p><span>EMAIL </span>{roomatePersonalObj.email}
                     </p>
                     <div className="Card-buttons">
-                        <a href={`mailto:{roomatePersonalObj.email}`} target="_blank" rel="noopener noreferrer">
+                        <a href={`mailto:${roomatePersonalObj.email}`} target="_blank" rel="noopener noreferrer">
                             <img src={Google} alt="Google" />
                         </a>
                         <a href={roomatePersonalObj.fb} target="_blank" rel="noopener noreferrer">
