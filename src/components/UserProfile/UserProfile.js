@@ -3,7 +3,7 @@ import UserProfileNavbar from './UserProfileNavbar';
 import PersonalInfoForm from './PersonalInfoForm';
 import { AuthContext } from "../../App.js";
 import firebaseApp from "../../firebaseApp";
-import loadgif from "../../images/loadgif.gif";
+import loadgif from "../../images/loading.gif";
 import axios from "axios";
 import "./UserProfile.css";
 import ProfileCard from "./ProfileCard";
@@ -37,14 +37,16 @@ const UserProfile=(props) => {
                 }else{
                     setUserRecommendationArray(response.data)
                 }
-                console.log(response.data);
+                // console.log(response.data);
             })
             .catch((error)=>{
-                console.log(error);
+                alert("Error in Reaching API")
+                // console.log(error);
             })
         })
         .catch((error)=>{
-            console.log("Error here")
+            alert("Error in Reaching Firebase")
+            // console.log("Error here")
         })
     }
     const handlePingWithoutRecommend=()=>{
@@ -60,7 +62,8 @@ const UserProfile=(props) => {
             // console.log(response.data);
         })
         .catch((error)=>{
-            console.log(error);
+            alert("Error in Reaching API")
+            // console.log(error);
         })
     }
     const handlePingEnd=()=>{
@@ -72,21 +75,27 @@ const UserProfile=(props) => {
             axios.get('https://roomnerapi.herokuapp.com/end/'+userUID)
             .then((response)=>{
                 setLoading2(false);
-                setUserRecommendationArray(null)
+                if(response.data==="RoomnerAPI : Your values are negated"){
+                    setUserRecommendationArray(null)
+                }else{
+                    alert("API responded with error")
+                }
             })
             .catch((error)=>{
-                console.log(error);
+                alert("Error in Reaching API")
+                // console.log(error);
             })
         })
         .catch((error)=>{
-            console.log("Error here")
+            alert("Error in Reaching Firebase")
+            // console.log("Error here")
         })
     }
     useEffect(() => {
         setLoading(true);
         firebaseApp.database().ref('user/'+userUID).once('value')
         .then((userObjRef)=>{
-            setUserObject(userObjRef.val()?userObjRef.val().userPersonalInfoObj:{});
+            setUserObject(userObjRef.val()?userObjRef.val().userPersonalInfoObj:null);
             setLoading(false);
         })
         handlePingWithoutRecommend();
@@ -166,9 +175,19 @@ const UserProfile=(props) => {
                     :
                         userRecommendationArray?
                                 <ProfileCard userRecommendationArray={userRecommendationArray} />
-                           
                         :
-                            <p>Sorry no POSITIVE matches found, Press Ping API again</p>
+                            <div>
+                                <p>Sorry no POSITIVE matches found, Press Find Match again</p>
+                                <ul>
+                                    <li>Maybe You have pressed Dont recommend</li>
+                                    <li>Maybe Your score with all other candidates are 0 or negative</li>
+                                    <li>Maybe other users are not of your gender</li>
+                                    <li>Maybe Some error on API</li>
+                                    <li>Maybe Your form was not submitted properly, Click Edit again</li>
+                                    <li>Maybe all other have pressed Dont recommend</li>
+                                </ul>
+                                <p>Solution : Press Find match again OR Wait for sometime and Try again</p>
+                            </div>
                 }
                 </div>
                 <div className="mobile-nav">

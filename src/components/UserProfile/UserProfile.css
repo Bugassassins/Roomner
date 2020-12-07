@@ -390,6 +390,10 @@
 
 
 @media(max-width: 768px) {
+    .loading-gif-2{
+        margin-top: 20rem;
+        margin-left:20rem;
+    }
     .Userpage-container {
         display: block;
     }
