@@ -20,12 +20,19 @@ const ProfileCard = (props) => {
     if(selected === -1) {
         show = 
             userRecommendationArray.map(([roomatePersonalObj, score], i) => {
+                let col = "";
+                if (score >= 0.6) col = "#0F9D58";
+                else if (score <= 0.3) col = "#DB4437";
+                else col = "#4285F4";
+
                 return (
                     <div id={i} key={i} className="Recommendations-Card" onClick={() => cardExpand(i)} style={{ backgroundImage: `url(${Background})`}}>
                         <img src={roomatePersonalObj.img} height="200" alt="RoomieImg" />
                         <p className="Recommendations-name">{roomatePersonalObj.name}</p>
-                        <div className="Recommendations-footer">
-                            <p className="Recommendations-score">{Math.round(score * 100)}%</p>
+                        <div className="Recommendations-footer" style={{ background: col }}>
+                            <p className="Recommendations-score">
+                                {Math.round(score * 100)}%
+                            </p>
                         </div>
                     </div>
                 )
@@ -33,6 +40,7 @@ const ProfileCard = (props) => {
     }
     else {
         const [roomatePersonalObj, score] = userRecommendationArray[selected];
+
         show = 
             <div className="Card-Expand">
                 <div className="Card-left">

@@ -69,6 +69,10 @@
 .Profile .profile-pic {
     border-radius: 50%;
     margin: 20px auto;
+    max-width: 200px;
+    max-height: 200px;
+    width: 70%;
+    height: auto;
 }
 
 .Profile-name {
@@ -156,6 +160,11 @@
     width: auto;
 }
 
+.Profile-facebook:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
 .Recommendations-Card {
     width: 30%;
     border-radius: 5px;
@@ -177,8 +186,10 @@
 }
 
 .Recommendations-Card img {
-    width: 180px;
-    height: 180px;
+    max-width: 180px;
+    max-height: 180px;
+    width: 60%;
+    height: auto;
     border-radius: 50%;
     margin: 50px auto 30px auto;
     border: 8px solid white;
@@ -249,13 +260,26 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-evenly; */
+    overflow: auto;
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+
+.Card-right::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.Card-right {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .Card-back {
     display: flex;
     flex-direction: row-reverse;
-    padding: 20px;
+    padding-top: 20px;
 }
 
 .Card-back img {
@@ -268,7 +292,7 @@
 }
 
 .Card-body {
-    height: 90%;
+    /* height: 90%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -309,7 +333,7 @@
 }
 
 .Card-buttons {
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -318,6 +342,7 @@
     height: 40px;
     width: auto;
     margin-top: 20px;
+    margin-left: 10px;
 }
 
 .Card-buttons img:hover {
