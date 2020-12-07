@@ -8,6 +8,8 @@ import axios from "axios";
 import "./UserProfile.css";
 import ProfileCard from "./ProfileCard";
 import Facebook from "../../images/Facebook.png";
+import matches from "../../images/matches-blue.png";
+import profile from "../../images/profile-blue.png";
 
 const UserProfile=(props) => {
     const Auth = useContext(AuthContext);
@@ -55,7 +57,7 @@ const UserProfile=(props) => {
             }else{
                 setUserRecommendationArray(response.data)
             }
-            console.log(response.data);
+            // console.log(response.data);
         })
         .catch((error)=>{
             console.log(error);
@@ -90,13 +92,32 @@ const UserProfile=(props) => {
         handlePingWithoutRecommend();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[Auth.isNewUser])
+
+    const showRecommendations = () => {
+        const Recommendations = document.getElementById("Rec");
+        const Profile = document.getElementById("Pro");
+        Recommendations.classList.remove("Recommendations-alt");
+        Recommendations.classList.add("Recommendations");
+        Profile.classList.remove("Profile-alt");
+        Profile.classList.add("Profile");
+    }
+
+    const showProfile = () => {
+        const Recommendations = document.getElementById("Rec");
+        const Profile = document.getElementById("Pro");
+        Recommendations.classList.remove("Recommendations");
+        Recommendations.classList.add("Recommendations-alt");
+        Profile.classList.remove("Profile");
+        Profile.classList.add("Profile-alt");
+    }
+
     let show;
     // if(0) {
     if(!Auth.isNewUser){
         show = <div className="Userpage-container">
                 <UserProfileNavbar logoutFunc={props.logoutFunc}/>
                 {/* <h1>DashBoard</h1> */}
-                <div className="Profile">
+                <div className="Profile" id="Pro">
                 {   
                     loading?
                         <img src={loadgif} alt="loading"/>
@@ -138,7 +159,7 @@ const UserProfile=(props) => {
                         <br />
                     </div>
                 </div>
-                <div className="Recommendations">
+                <div className="Recommendations" id="Rec">
                 {
                     loading2?
                         <img className="loading-gif-2" src={loadgif} alt="loading2" height="70" width="70"/>
@@ -149,6 +170,10 @@ const UserProfile=(props) => {
                         :
                             <p>Sorry no POSITIVE matches found, Press Ping API again</p>
                 }
+                </div>
+                <div className="mobile-nav">
+                    <img src={matches} alt="matches" onClick={showRecommendations}/>
+                    <img src={profile} alt="profile" onClick={showProfile}/>
                 </div>
             </div>
     }

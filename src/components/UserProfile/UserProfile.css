@@ -12,7 +12,7 @@
     position: fixed;
     padding: 20px;
     box-sizing: border-box;
-    overflow-y: auto;
+    overflow: auto;
     text-align: center;
 }
 
@@ -44,6 +44,31 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .Recommendations {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.Recommendations-alt {
+        display: none;   
+}
+
+.Profile-alt {
+        width: 100%;
+        height: calc(100vh - 140px);
+        position: static;
+        padding: 0 20px;
+        margin-top: 70px;
+        box-sizing: border-box;
+        overflow: auto;
+        text-align: center;
+}
+
+.Profile-alt::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.Profile-alt {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
@@ -197,13 +222,12 @@
 }
 
 .Recommendations-name {
-    font: normal normal normal 28px/40px Poppins;
+    font: normal normal normal 28px/36px Poppins;
     color: var(--secondary);
     margin: 0 auto 20px auto;
 }
 
 .Recommendations-footer {
-    background: var(--primary);
     width: 80px;
     height: 80px;
     margin: 0 auto 20px auto;
@@ -292,7 +316,6 @@
 }
 
 .Card-body {
-    /* height: 90%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -359,4 +382,168 @@
 
 .Navbar-logout:hover {
     color: var(--secondary);
+}
+
+.mobile-nav {
+    display: none;
+}
+
+
+@media(max-width: 768px) {
+    .Userpage-container {
+        display: block;
+    }
+
+    .Recommendations {
+        width: 100%;
+        height: calc(100vh - 140px);
+        margin: 70px 0 0 0 ;
+        display: block;
+    }
+
+    .Profile {
+        display: none;
+    }
+
+    .Navbar-logout {
+        display: none;
+    }
+
+    .Userpage-navbar {
+        height: 60px;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .Recommendations-Card {
+        width: 85%;
+        margin: 30px auto;
+        padding-bottom: 20px;
+    }
+
+    .Recommendations-Card:hover {
+        transform: none;
+    }
+
+    .Recommendations-Card img {
+        margin: 40px auto 10px auto;
+    }
+
+    .Recommendations-name {
+        font: normal normal normal 24px/32px Poppins;
+    }
+
+    .Recommendations-footer {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0;
+    }
+
+    .Recommendations-score {
+        margin: 0;
+        color: white;
+        font: normal normal normal 20px/26px Poppins;
+    }
+
+    .Card-Expand {
+        width: 90%;
+        height: auto;
+        margin: 30px auto;
+        display: block;
+    }
+    .Card-left img {
+        margin: 30px;
+    }
+
+    .Card-left {
+        height: auto;
+        width: 100%;
+        display: block;
+        border-radius: 6px 6px 0 0;
+        padding-bottom: 20px;
+    }
+
+    .Card-left h3 {
+        font: normal normal normal 24px/32px Poppins;
+        color: white;
+        margin: 0;
+    }
+
+    .Card-right {
+        width: 100%;
+        display: block;
+        overflow: auto;
+        padding: 30px;
+        box-sizing: border-box;
+    }
+
+    .Card-back {
+        padding: 0 0 10px 0;
+    }
+
+    .Card-body {
+        display: block;
+    }
+
+    .Card-right h1 {
+        font: normal normal normal 26px/40px Poppins;
+        padding: 0 0 10px 0;
+    }
+
+    .Card-right p {
+        font: normal normal normal 16px/22px Poppins;
+        padding: 10px 0;
+    }
+
+    .Card-buttons {
+        display: block;
+    }
+
+    .Card-buttons img {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .Card-buttons img:hover {
+        transform: none;
+    }
+
+    .mobile-nav {
+        display: block;
+        height: 70px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        background: white;
+    }
+
+    .Profile-alt .profile-pic {
+        border-radius: 50%;
+        margin: 20px auto;
+        max-width: 200px;
+        max-height: 200px;
+        width: 70%;
+        height: auto;
+    }
+
+    .Profile-name {
+        font: normal normal normal 30px/44px Poppins;
+    }
+
+    .Profile-bio {
+        padding: 10px 30px;
+        margin: 10px 0 0 0;
+    }
+
+    .Profile-text {
+        padding: 10px;
+    } 
+
+    .Profile-btn {
+        width: 80%;
+        padding: 5px 10px;
+    }
+
 }
