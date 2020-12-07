@@ -43,8 +43,7 @@ const Homepage = (props) => {
             <div className="Homepage-div">
                 <img src={bedImg} className="Homepage-bed-image" alt="bedimage" />
                 <span>{error}</span>
-                <Hero className="Homepage-hero" handleLogin={signInWithGoogle} />
-                
+                <Hero className="Homepage-hero" handleLogin={signInWithGoogle} />   
             </div>
         </div>
 
@@ -52,9 +51,9 @@ const Homepage = (props) => {
             <p className="Homepage-heading">Finding the Perfect Roommate has Never Been Easier</p>
 
             <div className="Homepage-cards">
-                    <Card src={step1} head="Sign Up" des="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et urna a libero iaculis ultricies. Quisque vitae tempor metus. Curabitur."/>
-                    <Card src={step2} head="Answer" des="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et urna a libero iaculis ultricies. Quisque vitae tempor metus. Curabitur."/>
-                    <Card src={step3} head="Connect" des="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et urna a libero iaculis ultricies. Quisque vitae tempor metus. Curabitur."/> 
+                    <Card src={step1} head="Sign Up" des="Register yourself with your google account and provide some basic information about you to get started."/>
+                    <Card src={step2} head="Answer" des="Answer a curated set of questions about your personality and your expectations from your roommate."/>
+                    <Card src={step3} head="Connect" des="Chose form the best matches and connect with your potential roommates through facbook profiles."/> 
             </div>
 
             <div className="Homepage-banner">
@@ -67,7 +66,7 @@ const Homepage = (props) => {
                 </div>
             </div>
 
-            <button className="Homepage-btn">Get Started</button>
+            <button className="Homepage-btn" onClick={signInWithGoogle}>Get Started</button>
         </div>
 
         <div className="Homepage-footer">

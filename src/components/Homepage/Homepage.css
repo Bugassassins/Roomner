@@ -190,7 +190,13 @@
     }
 }
 
-@media(max-width: 1024px) {
+@media(max-width: 1200px) {
+    .Homepage-bg {
+        background: white;
+        height: auto;
+        padding-bottom: 30px;
+    }
+
     .Homepage-div {
         width: 100%;
     }

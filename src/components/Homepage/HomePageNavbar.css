@@ -64,6 +64,7 @@
 @media(max-width: 600px) {
     .Homepage-navbar-Header {
         height: 60px;
+        justify-content: center;
     }
 
     .Homepage-navbar-Menu {

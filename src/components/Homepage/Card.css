@@ -9,8 +9,6 @@
 }
 
 .Card-container h3{
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-30)/var(--unnamed-line-spacing-46) var(--unnamed-font-family-poppins);
-    letter-spacing: var(--unnamed-character-spacing-0);
     color: var(--primary);
     text-align: center;
     font: normal normal normal 26px/46px Poppins;
@@ -19,8 +17,6 @@
 }
 
 .Card-container p{
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-18)/var(--unnamed-line-spacing-27) var(--unnamed-font-family-poppins);
-    letter-spacing: var(--unnamed-character-spacing-0);
     color: var(--dark-text);
     text-align: center;
     font: normal normal normal 15px/27px Poppins;
