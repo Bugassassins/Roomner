@@ -166,6 +166,8 @@ const UserProfile=(props) => {
                         {/* To Negate the occurance of your score in everyone array */}
                         <button className="Profile-btn" onClick={handlePingEnd}>Dont Recommend me anymore</button>
                         <br />
+                        <button className="Profile-btn" onClick={props.logoutFunc}>Logout</button>
+                        <br />
                     </div>
                 </div>
                 <div className="Recommendations" id="Rec">

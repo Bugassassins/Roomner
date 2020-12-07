@@ -26,7 +26,7 @@ const Footer = () => {
             <div className="Footer-contact">
                 <h3>Contact</h3>
                 <p><img src={Call} alt="Phone:"/> +91-0123-456-789</p>
-                <p><img src={Email} alt="Email:"/> example@yourmail.com</p>
+                <p><img src={Email} alt="Email:"/> bugassassins@gmail.com</p>
             </div>
         </div>
     )

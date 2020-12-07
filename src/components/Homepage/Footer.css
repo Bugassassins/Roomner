@@ -10,7 +10,7 @@
 }
 
 .Footer-logo img{
-    width: 60%;
+    width: 50%;
     height: auto;
     margin: auto 40px;
 }
@@ -29,8 +29,6 @@
 }
 
 .Footer-container h3 {
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-22)/var(--unnamed-line-spacing-48) var(--unnamed-font-family-poppins);
-    letter-spacing: var(--unnamed-character-spacing-0);
     color: var(--dark-text);
     text-align: left;
     font: normal normal normal 20px/48px Poppins;
@@ -40,14 +38,13 @@
 }
 
 .Footer-container p{
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-18)/var(--unnamed-line-spacing-24) var(--unnamed-font-family-poppins);
-    letter-spacing: var(--unnamed-character-spacing-0);
     color: var(--regular-text);
     text-align: left;
     font: normal normal normal 15px/24px Poppins;
     letter-spacing: 0px;
     opacity: 1;
     line-height: 100%;
+    cursor: pointer;
 }
 
 @media(max-width: 1024px) {
