@@ -178,7 +178,7 @@ const UserProfile=(props) => {
                         userRecommendationArray?
                                 <ProfileCard userRecommendationArray={userRecommendationArray} />
                         :
-                            <div>
+                            <div className="fail-message">
                                 <p>Sorry no POSITIVE matches found, Press Find Match again</p>
                                 <ul>
                                     <li>Maybe You have pressed Dont recommend</li>

@@ -388,6 +388,10 @@
     display: none;
 }
 
+.fail-message {
+     font: normal normal normal 20px/28px Poppins;
+}
+
 
 @media(max-width: 768px) {
     .loading-gif-2{
