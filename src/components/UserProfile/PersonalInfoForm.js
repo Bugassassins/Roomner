@@ -65,8 +65,8 @@ const PersonalInfoForm=(props) => {
                 </div>
                 <div className="form-body">
                     <h1 className="form-title">Lets get you started</h1>
-                    <p>Don't refresh page It will lead to bad things</p>
-                    <p>Don't Submit Empty also. It will lead to bad things</p>
+                    {/* <p>Don't refresh page It will lead to bad things</p>
+                    <p>Don't Submit Empty also. It will lead to bad things</p> */}
                         {Info.map((ele,i)=>{
                             if(ele[1]==="gender"){
                                 return (<div id={i} key={i} onChange={(event)=>{
