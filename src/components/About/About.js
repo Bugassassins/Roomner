@@ -4,7 +4,9 @@ import { AuthContext } from "../../App.js";
 import firebaseApp from "../../firebaseApp";
 import HomePageNavbar from '../Homepage/HomePageNavbar';
 import "./About.css";
-import { DefaultProfile } from "../../images/DefaultProfile";
+import Utkarsh from "../../images/Homepage_assets/Utkarsh.png";
+import Shridhar from "../../images/Homepage_assets/Shridhar.png";
+import Vidit from "../../images/Homepage_assets/Vidit.png";
 import github from "../../images/Homepage_assets/github.png";
 import mail from "../../images/Homepage_assets/email.png";
 import Footnote from "../Footnote";
@@ -42,30 +44,30 @@ const About = (props) => {
 
             <div className="About-Cards">
                 <div className="About-Card">
-                    <img className="About-profile" src={DefaultProfile} alt="..." />
+                    <img className="About-profile" src={Utkarsh} alt="..." />
                 <div className="About-Card-body">
                     <h3>Utkarsh Kumar Singh</h3>
                     <h5>Team Leader</h5>
                     <p>  <img src={mail} width="20" alt="Email "/> singhutkarsh902@gmail.com</p>
-                    <p>  <img src={github} width="20" alt="Github "/><a href="https://github.com/ShubhamBara"> github.com/ShubhamBara</a></p>
+                    <p>  <img src={github} width="20" alt="Github "/><a href="https://github.com/singhutkarsh902"> github.com/singhutkarsh902</a></p>
                 </div>
                 </div>
                 <div className="About-Card">
-                    <img src={DefaultProfile} className="About-profile" alt="..." />
+                    <img src={Shridhar} className="About-profile" alt="..." />
                 <div className="About-Card-body">
-                    <h3>Shubham Bara</h3>
-                    <h5>Team Leader</h5>
-                    <p>  <img src={mail} width="20" alt="Email "/> shubhambaraofficial@gmail.com</p>
-                    <p>  <img src={github} width="20" alt="Github "/><a href="https://github.com/ShubhamBara"> github.com/ShubhamBara</a></p>
+                        <h3>Shridhar Thakur</h3>
+                    <h5>Member</h5>
+                        <p>  <img src={mail} width="20" alt="Email " /> thakur.shridhar3093@gmail.com</p>
+                        <p>  <img src={github} width="20" alt="Github " /><a href="https://github.com/shridhar-t"> github.com/shridhar-t</a></p>
                 </div>
                 </div>
                 <div className="About-Card">
-                    <img src={DefaultProfile} className="About-profile" alt="..." />
+                    <img src={Vidit} className="About-profile" alt="..." />
                 <div className="About-Card-body">
-                    <h3>Shubham Bara</h3>
-                    <h5>Team Leader</h5>
-                    <p>  <img src={mail} width="20" alt="Email "/> shubhambaraofficial@gmail.com</p>
-                    <p>  <img src={github} width="20" alt="Github "/><a href="https://github.com/ShubhamBara"> github.com/ShubhamBara</a></p>
+                    <h3>Vidit Chopra</h3>
+                    <h5>Member</h5>
+                        <p>  <img src={mail} width="20" alt="Email " /> vidit1500@gmail.com</p>
+                        <p>  <img src={github} width="20" alt="Github " /><a href="https://github.com/viditchopra1500"> github.com/viditchopra1500</a></p>
                 </div>
                 </div>
             </div>

@@ -53,7 +53,7 @@ const Homepage = (props) => {
             <div className="Homepage-cards">
                     <Card src={step1} head="Sign Up" des="Register yourself with your google account and provide some basic information about you to get started."/>
                     <Card src={step2} head="Answer" des="Answer a curated set of questions about your personality and your expectations from your roommate."/>
-                    <Card src={step3} head="Connect" des="Chose form the best matches and connect with your potential roommates through facbook profiles."/> 
+                    <Card src={step3} head="Connect" des="Choose form the best matches and connect with your potential roommates through facebook profiles."/> 
             </div>
 
             <div className="Homepage-banner">
@@ -62,7 +62,7 @@ const Homepage = (props) => {
                 </div>
                 <div className="Homepage-banner-text">
                         <h1>Keep Your Personal Information Secure</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu nulla mauris. Mauris sit amet arcu eleifend, tincidunt risus sit amet, rhoncus lectus. Fusce feugiat consectetur interdum. Aenean semper congue nulla in sollicitudin. Morbi a urna semper, venenatis erat at, condimentum elit. Phasellus vestibulum commodo tempor. Vestibulum ultricies volutpat lorem, et euismod mi pharetra sed.</p>
+                        <p>We understand that some of the questions asked might be a little personal which people will not want to share with everyone. But don't worry we will never share your answers with anyone. Other users can only see your basic and contact information such as facebook profile and email. We care about your privacy and always work towards protecting it.</p>
                 </div>
             </div>
 
